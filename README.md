@@ -296,6 +296,37 @@ This repository is primarily for documentation purposes. Feel free to:
 
 ---
 
+## 🚀 How to Edit & Deploy
+
+### Edit the Website
+
+1. Go to: `index.html` in this repo
+2. Click the pencil icon to edit
+3. Make changes (colors, text, layout, etc.)
+4. Commit changes with a message
+
+### Deployment Flow
+
+**GitHub** → **Render** → **Cloudflare** → **orin.work**
+
+- Code lives on GitHub
+- Render pulls & serves the static site
+- Cloudflare CDN caches & proxies to orin.work domain
+- Changes deploy automatically when you commit
+- DNS managed by Namecheap, routed through Cloudflare
+
+### Timeline
+- Edit + commit on GitHub: Instant
+- Render redeploy: ~5-10 seconds
+- Cloudflare cache refresh: ~1 minute
+- Live on orin.work: Within 1-2 minutes
+
+### Key Files
+- `index.html` - Your website (edit this)
+- `package.json` - Dependencies (for backend only)
+- `.env.example` - Environment variables template
+- `Dockerfile` - Docker container config
+
 **Last Updated**: November 11, 2025  
 **Deployment Status**: Active & Monitoring  
 **Next Review**: Monthly performance audit  
