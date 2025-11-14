@@ -343,7 +343,18 @@ The connection points should now appear on all nodes. This issue affects the n8n
 
 ---
 
-## Facebook Messenger Webhook Fixes (Nov 14, 2025)
+## Facebook Messenger Webhook Fixes (Nov 
+
+**n8dex Workflow:** [https://n8dex.com/OENU11pw](https://n8dex.com/OENU11pw)
+
+**Description:**
+Facebook Messenger AI Chatbot with OpenAI integration. Handles webhook verification (GET) and incoming messages (POST). Includes working solutions for:
+- Facebook webhook verification fix (hub.challenge response)
+- JSON.stringify() fix for AI output to prevent JSON errors
+- AI Agent with conversation memory using sender ID
+- Automatic replies via Facebook Graph API
+
+Based on tutorial but with fixes for current n8n version.14, 2025)
 
 ### Issue 1: Facebook Webhook Verification Not Working
 
