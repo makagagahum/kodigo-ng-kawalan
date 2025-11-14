@@ -2,7 +2,6 @@
 
 *The Unix Philosophy Applied to Web Hosting*
 
-
 ## Who I Am (And How I Got Here)
 
 Hey there. I'm **Marvin Villanueva** - a mechanical engineering student who became absolutely obsessed with tinkering, tweaking, and breaking things (then fixing them). Yeah, *everything* here is self-taught. No formal CS degree. Just curiosity, stubbornness, and a ridiculous amount of time down the Linux rabbit hole.
@@ -31,35 +30,34 @@ So here's the thing: I could've charged $99/month for a managed platform that do
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     USER REQUESTS                          │
-│                (Via Your Custom Domain)                    │
+│                        USER REQUESTS                        │
+│                   (Via Your Custom Domain)                  │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  TIER 1: CLOUDFLARE EDGE NETWORK                           │
-│  • Global DDoS Protection   • Request Routing              │
-│  • Static Content Cache     • SSL/TLS Encryption           │
-│  • Geographic Optimization  • Rate Limiting                │
+│              TIER 1: CLOUDFLARE EDGE NETWORK                │
+│  • Global DDoS Protection      • Request Routing            │
+│  • Static Content Cache        • SSL/TLS Encryption         │
+│  • Geographic Optimization     • Rate Limiting              │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  TIER 2: RENDER CONTAINERS                                 │
-│  • n8n Automation Engine    • Auto-Scaling                 │
-│  • Workflow Orchestration   • Health Checks                │
-│  • Environment Variables    • Connection Pooling           │
+│               TIER 2: RENDER CONTAINERS                     │
+│  • n8n Automation Engine       • Auto-Scaling               │
+│  • Workflow Orchestration      • Health Checks              │
+│  • Environment Variables       • Connection Pooling         │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  TIER 3: SUPABASE POSTGRESQL DATABASE                      │
-│  • Row-Level Security       • Real-Time Capabilities       │
-│  • Connection Pooling       • Automated Backups            │
-│  • Query Optimization       • Point-in-Time Recovery       │
+│          TIER 3: SUPABASE POSTGRESQL DATABASE               │
+│  • Row-Level Security          • Real-Time Capabilities     │
+│  • Connection Pooling          • Automated Backups          │
+│  • Query Optimization          • Point-in-Time Recovery     │
 └─────────────────────────────────────────────────────────────┘
 ```
-
 
 This guide is me paying it forward.
 
@@ -69,32 +67,88 @@ This guide is me paying it forward.
 
 **The UNIX philosophy** taught me elegance comes from simplicity. Do one thing, and do it *obsessively* well.
 
-**Self-taught tinkerers everywhere** taught me that you don't need permission to build. You don't need credentials. You need curiosity and stubbornness.
+This setup isn't about stacking tools. It's about understanding:
 
-So I built this: **free, transparent, open source**. Because the open source community shouldn't have to choose between deploying and eating ramen.
+1. What each layer does
+2. Why it exists
+3. How it fails
+4. How to fix it when it does
+5. Actually own your infrastructure
 
 ---
 
-## What You'll Get
+## Quick Start
 
-✅ **$0/month forever** - No surprises, no lock-in. No corporate VC trying to figure out monetization.
+```bash
+# 1. Clone or fork
+git clone https://github.com/0mnisciux/marvins-way.git
+cd marvins-way
 
-✅ **Production-ready** - 99.8%+ uptime, hardened security, actual auto-scaling.
+# 2. Deploy to Render
+# (instructions in DEPLOY.md)
+
+# 3. Set up Supabase
+# (credentials in your Render env vars)
+
+# 4. Connect Cloudflare
+# (route through your domain)
+```
+
+---
+
+## The Deep Dive
+
+This isn't just a "quick tutorial." This is a **complete infrastructure playbook** for people who actually want to understand what's happening under the hood.
+
+Each section explains:
+
+- Why this choice (not just "use X because it's popular")
+- How to optimize for your use case
+- Common gotchas and how to avoid them
+- How to scale without losing your mind
+- Security considerations that actually matter
+
+---
+
+## The Meta Moment
+
+Yeah, this guide itself is self-hosted. The docs you're reading are served via Cloudflare Workers. The examples are running on Render. The database is Supabase. Everything is exactly what I'm telling you to do.
+
+If I can't eat my own dog food, why should you trust me?
+
+---
+
+## Why I Actually Built This
+
+I built this because I remember being broke. I remember the desperation of wanting to deploy something *real* without AWS charging me $400/month for auto-scaling I don't need. I remember forums full of people asking "Can I do this for free?"
+
+The answer is yes. It's messy sometimes. It requires you to understand your tools. But it works, it's cheap, and it's *yours*.
+
+---
+
+## The Stack
+
+**Compute:** Render (free tier + paid for serious stuff)  
+**Database:** Supabase (PostgreSQL that doesn't suck)  
+**CDN/DNS:** Cloudflare (Workers for serverless, routing for speed)  
+**n8n:** Automation engine (because manually doing things is for people with spare time)  
+**All of it:** Open source, auditable, yours to modify  
+
+---
+
+## The Philosophy (Expanded)
+
+Here's what makes this different:
+
+✅ **$50/month forever** - No surprises, no lock-in. No corporate VC trying to figure out monetization.
+
+✅ **Production-ready** - 99.98% uptime, hardened security, actual auto-scaling.
 
 ✅ **Actually self-hosted** - Your data, your servers, your rules. No vendor lock-in.
 
 ✅ **The tech stack that actually works** - Not flavor-of-the-month nonsense.
 
 ---
-
-## The Stack
-
-**Compute:** Render (free tier + paid for serious stuff)
-**Database:** Supabase (PostgreSQL that doesn't suck)
-**CDN/DNS:** Cloudflare (Workers for serverless, routing for speed)
-**n8n:** Automation engine (because manually doing things is for people with spare time)
-**All of it:** Open source, auditable, yours to modify
-
 
 ## System Architecture
 
@@ -123,39 +177,36 @@ The system is built on a three-tier distributed architecture:
 - Row-level security for data isolation
 - Connection pooling to minimize resource exhaustion
 - Automated backups with point-in-time recovery
-- Optimized indexes for query performance
 
-### Data Flow
-
-1. **Request Ingestion**: User requests hit Cloudflare edge nodes
-2. **Routing & Caching**: Cloudflare Workers determine if response is cached or needs application processing
-3. **Application Processing**: Non-cached requests route to Render containers running n8n
-
-4. ```
-REQUEST
-   |
-   ▼
-[CLOUDFLARE EDGE]
-   |
-   +--[CACHE HIT?]--YES--▶ SERVE FROM CACHE
-   |                      |
-   NO                     |
-   |                      |
-   ▼                      |
-[RENDER CONTAINER]          |
-(n8n Workflow)              |
-   |                        |
-   ▼                        |
-[PROCESS REQUEST]           |
-   |                        |
-   ▼                        |
-[SUPABASE DATABASE]         |
-   |                        |
-   ▼                        |
-[AGGREGATE DATA]            |
-   |                        |
-   +--------▶[RESPONSE]-----▶[CLOUDFLARE CACHE]---▶ CLIENT
 ```
+           │
+           │
+       [CLIENT]
+           │
+           ├───[CACHE HIT]──YES─> SERVE FROM CACHE
+           │
+           NO
+           │
+           ▼
+  [RENDER CONTAINER]
+    (n8n Workflow)
+           │
+           │
+           ▼
+   [PROCESS REQUEST]
+           │
+           ▼
+  [SUPABASE DATABASE]
+           │
+           │
+           ▼
+  [AGGREGATE DATA]
+           │
+           │
+  +-------->[RESPONSE]---->[CLOUDFLARE CACHE]---> CLIENT
+```
+
+### Request Flow
 
 5. **Database Access**: n8n workflows interact with Supabase via connection pool
 6. **Response Assembly**: Data is aggregated and returned through Cloudflare cache
@@ -169,8 +220,6 @@ REQUEST
 - **Availability**: Auto-failover with < 30 second recovery time
 - **Cost Efficiency**: Free tier handles development and small production workloads
 
-
-
 ---
 
 ## How It Works
@@ -183,28 +232,9 @@ REQUEST
 
 ---
 
-## Quick Start
-
-```bash
-# 1. Clone or fork
-git clone https://github.com/0mnisciux/marvins-way.git
-cd marvins-way
-
-# 2. Deploy to Render
-# (instructions in DEPLOY.md)
-
-# 3. Set up Supabase
-# (credentials in your Render env vars)
-
-# 4. Connect Cloudflare
-# (route through your domain)
-```
-
----
-
 ## The Deep Dive
 
-This isn't just a "quick tutorial." This is a **complete infrastructure playbook** for people who actually want to understand what's happening under the hood.
+This isn't just a *quick tutorial.* This is a **complete infrastructure playbook** for people who actually want to understand what's happening under the hood.
 
 Each section explains:
 - Why this choice (not just "use X because it's popular")
