@@ -339,3 +339,62 @@ The connection points should now appear on all nodes. This issue affects the n8n
 ---
 
 **Questions or issues?** Check [n8n community](https://community.n8n.io) or [GitHub issues](https://github.com/n8n-io/n8n/issues)
+
+
+---
+
+## Facebook Messenger Webhook Fixes (Nov 14, 2025)
+
+### Issue 1: Facebook Webhook Verification Not Working
+
+**Problem:** The Respond to Webhook node wasn't executing (staying gray) when Facebook sent webhook verification requests.
+
+**Root Cause:** The "Respond to Webhook" node was connected to the TRUE branch of an "If" node, but the verification data was going to the FALSE branch.
+
+**Solution:** 
+- Removed the If node from the verification flow
+- Connected "Respond to Webhook" node directly to the Webhook node
+- Configured Response Body to return: `{{ $('Webhook').item.json.query['hub.challenge'] }}`
+
+**Result:** Webhook verification now works correctly. Facebook receives the challenge response and approves the webhook.
+
+### Issue 2: HTTP Request Node - Invalid JSON Error
+
+**Problem:** HTTP Request node throwing error: "JSON parameter needs to be valid JSON"
+
+**Root Cause:** The AI Agent's output text contained unescaped quotes or special characters that broke the JSON structure when inserted into the message text field.
+
+**Original Code (Broken):**
+```json
+{
+  "recipient": {
+    "id": "{{ $('Webhook').item.json.body.entry[0].messaging[0].sender.id }}"
+  },
+  "messaging_type": "RESPONSE",
+  "message": {
+    "text": "{{ $json.output }}"
+  }
+}
+```
+
+**Fixed Code:**
+```json
+{
+  "recipient": {
+    "id": "{{ $('Webhook').item.json.body.entry[0].messaging[0].sender.id }}"
+  },
+  "messaging_type": "RESPONSE",
+  "message": {
+    "text": {{ JSON.stringify($json.output) }}
+  }
+}
+```
+
+**Key Change:** Changed `"{{ $json.output }}"` to `{{ JSON.stringify($json.output) }}`
+
+**Why This Works:** 
+- `JSON.stringify()` properly escapes quotes, newlines, and special characters
+- Prevents the AI output from breaking the JSON structure
+- No longer needs surrounding quotes because stringify() returns a properly formatted JSON string
+
+**Alternative Solution:** Use "Using Fields Below" instead of "Using JSON" in the Specify Body dropdown, which handles JSON encoding automatically.
