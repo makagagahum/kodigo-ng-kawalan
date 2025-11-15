@@ -43,9 +43,11 @@
         body {
             font-family: var(--font-sans);
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-color); 
+            font-weight: 300; /* font-light */
             transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
+            user-select: none; /* Harden: Disable text selection */
         }
         
         #noise-overlay {
@@ -73,7 +75,10 @@
             z-index: 1;
         }
 
-        h1, h2, h3, h4, h5, h6 { font-weight: 800; }
+        h1, h2, h3, h4, h5, h6 { 
+            font-weight: 900; /* font-black */
+            letter-spacing: -0.05em; /* tracking-tighter */
+        }
 
         .hyper-text {
             background: linear-gradient(90deg, var(--accent-green), var(--accent-green-dark));
@@ -91,26 +96,13 @@
 
         .card {
             @apply bg-[var(--card-bg)]/60 backdrop-blur-2xl border border-white/10 rounded-2xl p-10 relative overflow-hidden;
-            transition: all 0.3s ease-out;
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(56, 248, 168, 0.1), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+            transition: transform 0.3s ease-out, backdrop-filter 0.3s ease-out, border-color 0.3s ease-out;
         }
         .card:hover {
-            transform: translateY(-10px) scale(1.03) rotate(-1deg);
-            box-shadow: 0 0 40px rgba(56, 248, 168, 0.15);
-            border-color: var(--accent-green) !important;
+            transform: translateY(-8px);
+            backdrop-filter: blur(40px); /* Increased blur on hover */
+            border-color: rgba(255, 255, 255, 0.2) !important;
         }
-        .card:hover::before { opacity: 1; }
         html.light .card {
             @apply border-black/10;
         }
@@ -122,13 +114,6 @@
         .btn-cta {
             @apply btn bg-[var(--accent-green)] text-[#0B1120] py-4 px-8 relative overflow-hidden;
             box-shadow: 0 0 20px rgba(56, 248, 168, 0.3);
-        }
-        .btn-cta::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -150%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .btn-cta:hover {
             @apply transform -translate-y-1 scale-105 brightness-110;
@@ -147,7 +132,7 @@
 
         /* Animations */
         .animated-element {
-            opacity: 0;
+            opacity: 0; 
             transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .animate-fade-in { transform: translateY(80px); }
@@ -180,14 +165,6 @@
         .hero-bg {
             position: relative;
             overflow: hidden;
-        }
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(45, 212, 191, 0.25), transparent 40%);
-            transition: background 0.2s ease;
-            pointer-events: none;
         }
         
         /* Form Styles */
@@ -229,6 +206,7 @@
             color: #1A202C;
             border-color: #E2E8F0;
         }
+        #chat-input:focus { outline: none; border-color: var(--accent-green); box-shadow: none; }
         html.dark #chat-input {
             background-color: #E0E7FF;
             color: #0B1120;
@@ -240,7 +218,6 @@
         html.dark #chat-input::placeholder {
             color: #718096;
         }
-        #chat-input:focus { outline: none; border-color: var(--accent-green); box-shadow: none; }
         
         /* Theme Toggle Icon Visibility */
         html:not(.dark) .moon-icon { display: none; }
@@ -300,6 +277,38 @@
             display: flex;
             gap: 2.5rem; /* gap-10 */
         }
+
+        /* Pricing Box Style */
+        .pricing-box {
+            position: relative;
+            padding: 2px; /* Creates space for the border */
+            border-radius: 1.5rem; /* rounded-3xl */
+            background: linear-gradient(120deg, var(--accent-green), var(--accent-green-dark), #8B5CF6);
+            background-size: 200% 200%;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        .pricing-box-inner {
+            background-color: #111827; /* A slightly darker bg for contrast */
+            border-radius: calc(1.5rem - 2px);
+        }
+        html.light .pricing-box-inner { background-color: #F9FAFB; }
+
+        @keyframes pulse-glow {
+            0%, 100% { background-position: 0% 50%; box-shadow: 0 0 30px -5px rgba(56, 248, 168, 0.4); }
+            50% { background-position: 100% 50%; box-shadow: 0 0 50px 0px rgba(56, 248, 168, 0.7); }
+        }
+
+        .news-ticker-flash {
+            animation: urgent-pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes urgent-pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px -5px rgba(56, 248, 168, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 35px 0px rgba(56, 248, 168, 0.8);
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -319,32 +328,11 @@
         </script>
         <div class="fb-customerchat" attribution="biz_inbox" page_id="100063623736284"></div>
 
-        <header class="py-4 px-4 sm:px-6 lg:px-8 sticky top-0 z-50 backdrop-blur-2xl border-b border-[var(--card-border)] bg-[var(--bg-color)]/80">
-            <nav class="flex justify-between items-center max-w-7xl mx-auto">
-                <a href="#" class="flex items-center gap-2 text-2xl tracking-tight text-[var(--heading-color)] font-extrabold">
-                    <img src="https://i.imgur.com/7JAu9YG.png" alt="ORIN AI Logo" class="h-8 w-auto">
-                    <span>ORIN AI</span>
-                </a>
-                <div class="hidden md:flex items-center gap-6 text-lg font-medium">
-                    <a href="#features" class="hover:text-[var(--accent-green)] transition-colors">Features</a>
-                    <a href="#statistics" class="hover:text-[var(--accent-green)] transition-colors">Stats</a>
-                    <a href="#comparison" class="hover:text-[var(--accent-green)] transition-colors">Pricing</a>
-                </div>
-                <div class="flex items-center gap-4">
-                     <div id="theme-toggle" class="cursor-pointer p-3 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)]">
-                         <i data-lucide="sun" class="sun-icon"></i>
-                         <i data-lucide="moon" class="moon-icon"></i>
-                     </div>
-                    <a href="#pricing" class="btn-cta-sm hidden sm:block">Get ORIN AI</a>
-                </div>
-            </nav>
-        </header>
-
         <main>
             <section class="py-24 md:py-32 px-4 sm:px-6 lg:px-8 hero-bg">
                 <div class="max-w-5xl mx-auto text-center">
                     <div class="floating-orin mb-12">
-                        <img src="https://i.imgur.com/7JAu9YG.png" alt="ORIN AI Agent Avatar" class="w-20 h-28 mx-auto">
+                        <img src="https://i.imgur.com/7JAu9YG.png" alt="ORIN AI Agent Avatar" class="w-20 h-28 mx-auto" loading="lazy">
                     </div>
                     <h1 id="hero-headline" class="text-6xl md:text-8xl lg:text-9xl tracking-tighter font-black text-[var(--heading-color)] leading-none">
                         </h1>
@@ -363,17 +351,11 @@
                     </div>
                 </div>
             </section>
-            
-            <section class="py-12 border-y-2 border-[var(--card-border)]">
-                <div class="marquee">
-                    <div class="marquee-content"></div>
-                </div>
-            </section>
-
+           
             <section id="features" class="py-24 sm:py-32">
                 <div class="text-center mb-20 max-w-4xl mx-auto px-4">
-                    <h2 class="text-4xl md:text-5xl tracking-tight text-[var(--heading-color)] animated-element animate-fade-in">Transform Your Business Operations</h2>
-                    <p class="mt-6 text-xl text-[var(--gray-text)] animated-element animate-fade-in" style="transition-delay: 150ms;">ORIN AI is packed with features to supercharge customer interactions.</p>
+                    <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">Transform Your Business Operations</h2>
+                    <p class="mt-6 text-xl text-[var(--gray-text)] leading-relaxed animated-element animate-fade-in" style="transition-delay: 150ms;">ORIN AI is packed with features to supercharge customer interactions.</p>
                 </div>
                 <div class="max-w-7xl mx-auto">
                     <div class="grid grid-cols-6 grid-rows-2 gap-8">
@@ -414,8 +396,8 @@
             <section id="statistics" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-7xl mx-auto">
                      <div class="text-center mb-20 max-w-3xl mx-auto">
-                        <h2 class="text-5xl md:text-7xl tracking-tighter font-black text-[var(--heading-color)] animated-element animate-fade-in">The Numbers Don't Lie.</h2>
-                        <p class="mt-6 text-xl text-[var(--gray-text)] animated-element animate-fade-in" style="transition-delay: 150ms;">See the proven impact of AI on business growth and efficiency.</p>
+                        <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">The Numbers Don't Lie.</h2>
+                        <p class="mt-6 text-xl text-[var(--gray-text)] leading-relaxed animated-element animate-fade-in" style="transition-delay: 150ms;">See the proven impact of AI on business growth and efficiency.</p>
                     </div>
                     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
                         <div class="card animated-element animate-fade-in" style="transition-delay: 200ms;">
@@ -452,8 +434,8 @@
             <section id="comparison" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-7xl mx-auto">
                      <div class="text-center mb-20 max-w-3xl mx-auto">
-                        <h2 class="text-5xl md:text-7xl tracking-tighter font-black text-[var(--heading-color)] animated-element animate-fade-in">A Smarter Investment. <span class="hyper-text">A Clearer Choice.</span></h2>
-                        <p class="mt-6 text-xl text-[var(--gray-text)] animated-element animate-fade-in" style="transition-delay: 150ms;">The data speaks for itself.</p>
+                        <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">A Smarter Investment. <span class="hyper-text">A Clearer Choice.</span></h2>
+                        <p class="mt-6 text-xl text-[var(--gray-text)] leading-relaxed animated-element animate-fade-in" style="transition-delay: 150ms;">The data speaks for itself.</p>
                     </div>
                     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
                         <div class="card border-[var(--card-border)] animated-element animate-fade-in">
@@ -507,15 +489,23 @@
 
             <section id="pricing" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-3xl mx-auto text-center animated-element animate-fade-in">
-                    <p class="font-semibold text-[var(--accent-green)] text-lg">Limited Offer</p>
-                    <h2 class="text-5xl md:text-7xl tracking-tighter font-black mt-4 text-[var(--heading-color)]">Get Your AI Agent Today</h2>
-                    <p class="mt-6 text-xl text-[var(--gray-text)]">This price is for the first 10 clients only. Don't miss out.</p>
-                    <div class="my-12">
-                        <p class="text-7xl font-black">₱10,000</p>
-                        <p class="text-[var(--gray-text)] mt-2 text-lg">One-Time Payment</p>
-                        <p class="text-base text-[var(--gray-text)]/70 mt-1">(+₱1,000 for optional future tech assistance)</p>
+                    <p class="font-semibold text-[var(--accent-green)] text-sm uppercase tracking-widest">Limited Offer</p>
+                    <h2 class="text-5xl md:text-7xl tracking-tighter mt-4 text-[var(--heading-color)]">Get Your AI Agent Today</h2>
+                    <p class="mt-6 text-xl text-[var(--gray-text)] leading-relaxed">This price is for the first 10 clients only. Don't miss out.</p>
+                    
+                    <div class="my-16 pricing-box">
+                        <div class="pricing-box-inner p-8 md:p-12">
+                            <div class="flex justify-center items-baseline">
+                                <span class="text-4xl font-bold text-[var(--gray-text)] mr-2">₱</span>
+                                <p class="text-8xl md:text-9xl font-black hyper-text">10,000</p>
+                            </div>
+                            <p class="text-3xl font-bold text-[var(--text-color)] mt-4 tracking-tight">One-Time Payment</p>
+                            <p id="slots-container" class="mt-6 text-lg font-medium bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 rounded-full py-2 px-6 inline-block">
+                                <i data-lucide="zap" class="inline w-5 h-5 -mt-1"></i> Only <strong id="slots-left-count">9</strong> <span id="slots-text">slots</span> remaining!
+                            </p>
+                        </div>
                     </div>
-                    <div class="card">
+                    <div class="card -mt-8">
                         <h3 class="font-bold text-3xl">Ready to Start?</h3>
                         <p class="text-[var(--gray-text)] mt-4 text-xl">Click the chat bubble to talk to ORIN AI, or visit our <a href="https://www.facebook.com/orinworks/" target="_blank" rel="noopener noreferrer" class="font-bold text-[var(--accent-green)] hover:underline">Facebook Page!</a> 🚀</p>
                         <p class="mt-4 text-[var(--gray-text)] text-xl">Call for a discovery session: <a href="tel:+639310134892" class="font-bold text-[var(--text-color)] hover:text-[var(--accent-green)] transition-colors">+639310134892</a></p>
@@ -526,41 +516,43 @@
             <section id="team" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-7xl mx-auto">
                     <div class="text-center mb-20 max-w-3xl mx-auto">
-                        <h2 class="text-5xl md:text-7xl tracking-tighter font-black text-[var(--heading-color)] animated-element animate-fade-in">The Minds Behind <span class="hyper-text">ORIN AI</span></h2>
-                        <p class="mt-6 text-xl text-[var(--gray-text)] animated-element animate-fade-in" style="transition-delay: 150ms;">ORIN AI is proudly developed by <strong class="text-[var(--accent-green)]">Organic AI Systems & Innovation Solutions (OASIS)</strong>.</p>
+                        <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">The Minds Behind <span class="hyper-text">ORIN AI</span></h2>
+                        <p class="mt-6 text-xl text-[var(--gray-text)] leading-relaxed animated-element animate-fade-in" style="transition-delay: 150ms;">ORIN AI is proudly developed by <strong class="text-[var(--accent-green)] font-semibold">Organic AI Systems & Innovation Solutions (OASIS)</strong>.</p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                        <div class="card text-center animated-element animate-fade-in p-8" style="transition-delay: 200ms;">
-                            <div class="w-24 h-24 mx-auto rounded-full border-2 border-[var(--card-border)] mb-4 overflow-hidden">
-                                <img src="https://scontent.fpag2-1.fna.fbcdn.net/v/t39.30808-6/561151391_10229562957473421_6313752299158348140_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEeTMF49yAKPnKWySmvPIBRRXgNRgZHPTRFeA1GBkc9NBDbnuVaRvDqrI6zHUSMHfw&_nc_ohc=LiuqK1bgYmQQ7kNvwGjBuXj&_nc_oc=Adka9rrNp9WHuL1ohjSqFMqHGofJVFUfp44C2z-fE2BbjPdn1IXLmtUI8BY5CMygCco&_nc_zt=23&_nc_ht=scontent.fpag2-1.fna&_nc_gid=BwqPHZuirEMyrNPImi4foQ&oh=00_Afha2Q-K2TFzM1wRYOYfHlFxxg_7KZO92KD_oXnYJrP0RA&oe=691DA99D" alt="Marvin S. Villanueva" class="w-full h-full object-cover object-left">
+                        <a href="https://www.facebook.com/omniscious" target="_blank" rel="noopener noreferrer" class="block">
+                            <div class="card text-center animated-element animate-fade-in p-8 h-full" style="transition-delay: 200ms;">
+                                <div class="w-24 h-24 mx-auto rounded-full border-2 border-[var(--card-border)] mb-4 overflow-hidden">
+                                    <img src="https://scontent.fpag2-1.fna.fbcdn.net/v/t39.30808-6/561151391_10229562957473421_6313752299158348140_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEeTMF49yAKPnKWySmvPIBRRXgNRgZHPTRFeA1GBkc9NBDbnuVaRvDqrI6zHUSMHfw&_nc_ohc=LiuqK1bgYmQQ7kNvwGjBuXj&_nc_oc=Adka9rrNp9WHuL1ohjSqFMqHGofJVFUfp44C2z-fE2BbjPdn1IXLmtUI8BY5CMygCco&_nc_zt=23&_nc_ht=scontent.fpag2-1.fna&_nc_gid=BwqPHZuirEMyrNPImi4foQ&oh=00_Afha2Q-K2TFzM1wRYOYfHlFxxg_7KZO92KD_oXnYJrP0RA&oe=691DA99D" alt="Marvin S. Villanueva" class="w-full h-full object-cover object-left" loading="lazy">
+                                </div>
+                                <h4 class="text-xl font-bold text-white">Marvin S. Villanueva</h4>
+                                <p class="text-[var(--gray-text)] text-sm">CEO, CTO, CFO & Creative Director</p>
+                                <span data-email="bWFydmluQG9yaW4ud29yaw==" class="email-link block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors"></span>
                             </div>
-                            <h4 class="text-xl font-bold text-white">Marvin S. Villanueva</h4>
-                            <p class="text-[var(--gray-text)] text-sm">CEO, CTO, CFO & Creative Director</p>
-                            <a href="mailto:marvin@orin.work" class="block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors">marvin@orin.work</a>
-                        </div>
+                        </a>
                         <div class="card text-center animated-element animate-fade-in p-8" style="transition-delay: 300ms;">
                             <div class="w-24 h-24 mx-auto rounded-full border-2 border-[var(--card-border)] mb-4 overflow-hidden">
-                                <img src="https://i.imgur.com/ce1YMPv.png" alt="John Romeo Albano" class="w-full h-full object-cover object-top">
+                                <img src="https://i.imgur.com/ce1YMPv.png" alt="John Romeo Albano" class="w-full h-full object-cover object-top" loading="lazy">
                             </div>
                             <h4 class="text-xl font-bold text-white">John Romeo Albano</h4>
                             <p class="text-[var(--gray-text)] text-sm">Business Officer</p>
-                            <a href="mailto:meow@orin.work" class="block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors">meow@orin.work</a>
+                            <a data-email="bWVvd0BvcmluLndvcms=" class="email-link block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors"></a>
                         </div>
                         <div class="card text-center animated-element animate-fade-in p-8" style="transition-delay: 400ms;">
                             <div class="w-24 h-24 mx-auto rounded-full border-2 border-[var(--card-border)] mb-4 overflow-hidden">
-                                <img src="https://scontent.fpag2-1.fna.fbcdn.net/v/t39.30808-1/470201414_9765795023447642_6807859288780336132_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFS60ItFQRlVTfnSCML1pnpC1FfcHtewAALUV9we17AAIne5hINnpraBBnKbPYGbOE&_nc_ohc=aOwAWCuEkbwQ7kNvwHhgrqB&_nc_oc=Adkc2fJn84td4Na0B7R7-fruMUnzbXugL9aT_lZ2Gkw06Tdze3U55Ia-pgyIIYBZF3c&_nc_zt=24&_nc_ht=scontent.fpag2-1.fna&_nc_gid=Ty2CAnG0rqpIzaaxItHrTQ&oh=00_AfjB4IernszkjsLvCut8_ENYlpaXnF6_cE7-s4WXrWrcFA&oe=691DAD68" alt="Gene David Lampa" class="w-full h-full object-cover object-top">
+                                <img src="https://scontent.fpag2-1.fna.fbcdn.net/v/t39.30808-1/470201414_9765795023447642_6807859288780336132_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFS60ItFQRlVTfnSCML1pnpC1FfcHtewAALUV9we17AAIne5hINnpraBBnKbPYGbOE&_nc_ohc=aOwAWCuEkbwQ7kNvwHhgrqB&_nc_oc=Adkc2fJn84td4Na0B7R7-fruMUnzbXugL9aT_lZ2Gkw06Tdze3U55Ia-pgyIIYBZF3c&_nc_zt=24&_nc_ht=scontent.fpag2-1.fna&_nc_gid=Ty2CAnG0rqpIzaaxItHrTQ&oh=00_AfjB4IernszkjsLvCut8_ENYlpaXnF6_cE7-s4WXrWrcFA&oe=691DAD68" alt="Gene David Lampa" class="w-full h-full object-cover object-top" loading="lazy">
                             </div>
                             <h4 class="text-xl font-bold text-white">Gene David Lampa</h4>
                             <p class="text-[var(--gray-text)] text-sm">Business Officer & Beta Tester</p>
-                            <a href="mailto:gene@orin.work" class="block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors">gene@orin.work</a>
+                            <a data-email="Z2VuZUBvcmluLndvcms=" class="email-link block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors"></a>
                         </div>
                         <div class="card text-center animated-element animate-fade-in p-8" style="transition-delay: 500ms;">
                             <div class="w-24 h-24 mx-auto rounded-full border-2 border-[var(--card-border)] mb-4 overflow-hidden">
-                                <img src="https://preview.redd.it/taro-sakamoto-icon-cleaned-edit-and-remastered-by-me-two-v0-kgpamdq4m0rb1.png?width=640&crop=smart&auto=webp&s=405967562d8822280c7ed17334574e3e238720dc" alt="Roe Romeo Albano" class="w-full h-full object-cover">
+                                <img src="https://preview.redd.it/taro-sakamoto-icon-cleaned-edit-and-remastered-by-me-two-v0-kgpamdq4m0rb1.png?width=640&crop=smart&auto=webp&s=405967562d8822280c7ed17334574e3e238720dc" alt="Roe Romeo Albano" class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <h4 class="text-xl font-bold text-white">Roe Romeo Albano</h4>
                             <p class="text-[var(--gray-text)] text-sm">Investor</p>
-                            <a href="mailto:roe@orin.work" class="block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors">roe@orin.work</a>
+                            <a data-email="cm9lQG9yaW4ud29yaw==" class="email-link block mt-2 text-[var(--accent-green)]/80 hover:text-[var(--accent-green)] transition-colors"></a>
                         </div>
                     </div>
                 </div>
@@ -571,6 +563,31 @@
             <div class="max-w-7xl mx-auto text-center text-[var(--gray-text)]/80">
                 <p>&copy; 2025 <span class="font-semibold text-[var(--text-color)]">Organic AI Systems & Innovation Solutions (OASIS)</span>. All rights reserved.</p>
                 <p class="mt-2 text-base">A creation by Marvin S. Villanueva and the OASIS Team.</p>
+            </div>
+        </footer>
+
+        <footer class="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-2xl bg-[var(--bg-color)]/80 border-t border-[var(--card-border)]">
+            <a href="https://www.facebook.com/orinworks" target="_blank" rel="noopener noreferrer" class="block news-ticker-flash text-center p-2 font-black text-base uppercase tracking-wider bg-[var(--accent-green)] text-[#0B1120]">
+                MVP OFFER: ₱10,000! 3 SLOTS LEFT - CLICK TO CLAIM!
+            </a>
+            <div class="py-4 px-4 sm:px-6 lg:px-8">
+                <nav class="flex justify-between items-center max-w-7xl mx-auto">
+                    <a href="#" class="flex items-center gap-2 text-2xl tracking-tight text-[var(--heading-color)] font-extrabold">
+                        <img src="https://i.imgur.com/7JAu9YG.png" alt="ORIN AI Logo" class="h-8 w-auto">
+                        <span class="hidden sm:inline">ORIN AI</span>
+                    </a>
+                    <div class="hidden md:flex items-center gap-6 text-lg font-medium">
+                        <a href="#features" class="hover:text-[var(--accent-green)] transition-colors">Features</a>
+                        <a href="#statistics" class="hover:text-[var(--accent-green)] transition-colors">Stats</a>
+                        <a href="#pricing" class="hover:text-[var(--accent-green)] transition-colors">Pricing</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                         <div id="theme-toggle" class="cursor-pointer p-3 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)]">
+                             <i data-lucide="sun" class="sun-icon"></i>
+                             <i data-lucide="moon" class="moon-icon"></i>
+                         </div>
+                    </div>
+                </nav>
             </div>
         </footer>
     </div>
@@ -584,13 +601,12 @@
         ChartsManager();
         MouseEffects();
         CanvasEffects();
+        SiteHardening();
+        DynamicSlotsManager();
         
         // --- GLOBAL INITIALIZATIONS ---
         MultilingualTicker();
         lucide.createIcons(); // Initial call
-        // Clone marquee content for seamless loop
-        const marqueeContent = document.querySelector('.marquee-content'); 
-        if (marqueeContent) { marqueeContent.innerHTML += marqueeContent.innerHTML; }
 
         animateHeadline();
 
@@ -685,6 +701,40 @@
         applyTheme(savedTheme);
     }
 
+    // --- HARDENING MODULE ---
+    function SiteHardening() {
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Anti-devtools trap - "Kupal ka ba, boss?" edition
+        const antiDevTools = () => {
+            const before = new Date().getTime();
+            debugger;
+            const after = new Date().getTime();
+            if (after - before > 100) { // Detects if DevTools is open and paused execution
+                document.body.innerHTML = `<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #0B1120; color: #E0E7FF; text-align: center; font-family: var(--font-sans);"><h1 style="font-size: 6vw; font-weight: 900;">Kupal ka ba, boss?</h1></div>`;
+            }
+        };
+        setInterval(antiDevTools, 1000);
+
+        // Disable common keyboard shortcuts for devtools
+        document.addEventListener('keydown', event => {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) || (event.metaKey && event.altKey && (event.key === 'I' || event.key === 'J' || event.key === 'C'))) {
+                event.preventDefault();
+            }
+        });
+
+        // Decode and display email addresses to protect from simple scrapers
+        document.querySelectorAll('.email-link').forEach(link => {
+            const encodedEmail = link.getAttribute('data-email');
+            if (encodedEmail) {
+                const decodedEmail = atob(encodedEmail);
+                link.href = 'mailto:' + decodedEmail;
+                link.textContent = decodedEmail;
+            }
+        });
+    }
+
     // --- SCROLL ANIMATIONS MODULE ---
     function ScrollAnimations() {
         const observer = new IntersectionObserver((entries) => {
@@ -695,6 +745,32 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
+    }
+
+    // --- DYNAMIC SLOTS MANAGER ---
+    function DynamicSlotsManager() {
+        const slotsCountElement = document.getElementById('slots-left-count');
+        const slotsTextElement = document.getElementById('slots-text');
+        if (!slotsCountElement || !slotsTextElement) return;
+
+        const storageKey = 'orinMvpSlotsLeft';
+        let currentSlots = localStorage.getItem(storageKey);
+
+        if (currentSlots === null) {
+            // First visit for this user
+            currentSlots = 9;
+        } else {
+            // Subsequent visits
+            currentSlots = parseInt(currentSlots, 10);
+            if (currentSlots > 1) {
+                currentSlots--;
+            }
+        }
+
+        localStorage.setItem(storageKey, currentSlots);
+
+        slotsCountElement.textContent = currentSlots;
+        slotsTextElement.textContent = currentSlots === 1 ? 'slot' : 'slots';
     }
 
     // ---
@@ -767,21 +843,6 @@
 
     // --- MOUSE EFFECTS MODULE ---
     function MouseEffects() {
-        document.querySelector('.hero-bg')?.addEventListener('mousemove', e => {
-            const { clientX, clientY } = e;
-            const { left, top } = e.currentTarget.getBoundingClientRect();
-            e.currentTarget.style.setProperty('--mouse-x', `${clientX - left}px`);
-            e.currentTarget.style.setProperty('--mouse-y', `${clientY - top}px`);
-        });
-
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                 const { clientX, clientY } = e;
-                 const { left, top } = e.currentTarget.getBoundingClientRect();
-                 e.currentTarget.style.setProperty('--mouse-x', `${clientX - left}px`);
-                 e.currentTarget.style.setProperty('--mouse-y', `${clientY - top}px`);
-            });
-        });
     }
 
     // --- CANVAS EFFECTS MODULE ---
@@ -848,8 +909,8 @@
             let opacityValue = 1;
             for (let a = 0; a < particlesArray.length; a++) {
                 for (let b = a; b < particlesArray.length; b++) {
-                    let distance = ((particlesArray[a].x - particlesArray[b].x) ** 2) + ((particlesArray[a].y - particlesArray[b].y) ** 2);
-                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) ** 2) + ((particlesArray[a].y - particlesArray[b].y) ** 2); 
+                    if (distance < 20000) { // Optimization: Reduced connection distance
                         opacityValue = 1 - (distance/20000);
                         ctx.strokeStyle = lineColor.replace(/,\s*\d*\.?\d*\)/, `, ${opacityValue})`);
                         ctx.lineWidth = 1;
@@ -886,6 +947,48 @@
         window.addEventListener('themeChanged', reinitCanvas);
         
         init();
+        animate();
+    }
+    </script>
+</body>
+</html> 
+        window.addEventListener('themeChanged', reinitCanvas);
+        
+        init();
+        animate();
+    }
+    </script>
+</body>
+</html> init();
+        animate();
+    }
+    </script>
+</body>
+</html>     animate();
+        };
+
+        window.addEventListener('resize', () => {
+            cancelAnimationFrame(animationFrameId);
+            clearTimeout(window.resizeLag);
+            window.resizeLag = setTimeout(reinitCanvas, 250);
+        });
+        
+        window.addEventListener('themeChanged', reinitCanvas);
+        
+        init();
+        animate();
+    }
+    </script>
+</body>
+</html> 
+        window.addEventListener('themeChanged', reinitCanvas);
+        
+        init();
+        animate();
+    }
+    </script>
+</body>
+</html> init();
         animate();
     }
     </script>
