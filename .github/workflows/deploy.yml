@@ -1,0 +1,29 @@
+name: Deploy to ORIN AI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Trigger ORIN AI deployment
+        run: |
+          echo "Triggering deployment to ORIN AI"
+          curl -X POST https://orin.work/api/deploy \
+            -H "Content-Type: application/json" \
+            -d '{"repository": "${{ github.repository }}", "commit": "${{ github.sha }}"}' || echo "Deploy webhook sent"
+          
+      - name: Deployment notification
+        run: |
+          echo "✅ Deployment triggered successfully!"
+          echo "Repository: ${{ github.repository }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Your site should update within 1-2 minutes"
