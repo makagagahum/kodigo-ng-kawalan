@@ -1,26 +1,26 @@
 # 🚀 Marvin's Way
 
-**The Unix Philosophy Applied tOne Person.   One Person. Seven Roles. 
+**The Unix Philosophy Applied to Web Hosting**
 o Web Hosting**
 
 ---
 
-## 📊 One Person. . Infinite Possibilities.
+## 📝 One Person. Seven Roles. Infinite Possibilities.
 
-| 🗄️ **Database Administrator** | PostgreSQL optimization, Supabase, connection pooling | [/database] | 🟢 Active |
-| 📧 **Email Administrator** | Mailu setup, mail.orin.work, email infrastructure | [/email] | 🟢 Active |
-| 🤖 **AI/ML Engineer** | ORIN AI agents, production setup, model optimization | [/ai-ml] | 🟢 Active |That's 3 enterprise  That's 7 professional
+
 **Meet the infrastructure stack managed by a mechanical engineering student:**
 
 | Role | Focus | Folder | Status |
 |------|-------|--------|--------|
-| 🤖 **Automation Engineer** | n8n workflows, task automation, API integrations | [`/n8n`](./n8n) | ✅ Active |
-| 🔒 **Cybersecurity Specialist** | DDoS protection, SSL/TLS, hardening, security configs | [`/security-hardening`](./security-hardening) | ✅ Active |
-| 💻 **Full-Stack Developer/Webmaster** | Bug fixes, performance, maintenance, deployment | [`/bug-fixes`](./bug-fixes) | ✅ Active |
+| 🤖 **Automation Engineer** | n8n workflows, task automation, API integrations | [/n8n](/n8n) | 🟢 Active |
+| 🔒 **Cybersecurity Specialist** | DDoS protection, SSL/TLS, hardening, security configs | [/security-hardening](/security-hardening) | 🟢 Active |
+| 💻 **Full-Stack Developer/Webmaster** | Bug fixes, performance, maintenance, deployment | [/bug-fixes](/bug-fixes) | 🟢 Active |
+| 🐳 **DevOps Engineer** | Docker, Render deployment, infrastructure scaling | [/devops](/devops) | 🟢 Active |
+| 🗄️ **Database Administrator** | PostgreSQL optimization, Supabase, connection pooling | [/database](/database) | 🟢 Active |
+| 📧 **Email Administrator** | Mailu setup, mail.orin.work, email infrastructure | [/email](/email) | 🟢 Active |
+| 🤖 **AI/ML Engineer** | ORIN AI agents, production setup, model optimization | [/ai-ml](/ai-ml) | 🟢 Active |
 
-**That's 3 enterprise-level tech positions handled by one person.**
-
----
+**That's 7 professional tech positions handled by one person.**| Role | Focus | Folder | Status |
 
 ## 🗺️ Navigation Guide
 
