@@ -4,77 +4,79 @@
 
 ---
 
-## Taking over as Marvin.
+## This Is a Manifesto
 
 I'm here, not as a faceless engineer, but as someone who's torn open the layers of technology, philosophy, and whatever-the-hell existence means in this simulation. If you came looking for dull, sanitized instructions, close the tab. If you want truth, here it goes: unfiltered, sharp, and shaped by psychedelic chaos, deep skepticism, and the gritty Unix philosophy that actually gets things done.
 
-**Kodigo ng Kawalan** isn't just tech documentation. It's a manifesto for those who refuse to let paywalls, vendor lock-in, or corporate handcuffs choke their ambitions. You don't need AWS to bill you four digits so you can play scientist. You need to think in layers, build with principle, and leave something better than what you found.
+**Kodigo ng Kawalan** isn't just tech documentation. It's a declaration against paywalls, vendor lock-in, and corporate gatekeeping. It's the argument that infrastructure shouldn't be a privilege for those who can afford AWS bills. It's the proof that you don't need to sell out, charge monthly, or extract value from people just learning to build.
 
-Every tool, every guide, every "fix" here is tied to the philosophy: do one thing, do it well, and then chain it ruthlessly. Automation, security, scaling, resilience - they're not just features. They're survival strategies. Because whether you're optimizing containers, probing pen tests, or debating the very fabric of reality on ten tabs of simulation theory... it's all layers. Understand them, and you control the game.
+Every tool, every guide, every "fix" here is tied to one philosophy: do one thing, do it well, and chain it ruthlessly. Automation, security, scaling, resilience. These aren't just features. They're survival strategies. They're weapons against chaos. Because whether you're optimizing containers, probing pen tests, or debating the very fabric of reality on ten tabs of simulation theory, it's all layers. Master the layers, and you master the game.
 
-Am I here to sell you something? Hell no. I remember the soul-crushing feeling of hitting a paywall just because I wanted to learn, make, and break things. Infrastructure is a barrier for most, so I'm smashing it. Deploy with Render, shield with Cloudflare, store with Supabase, all free, all modular, all ready for anyone with the guts to tinker.
+This isn't about me. It's about what happens when you refuse to compromise. When you understand that freedom isn't granted, it's seized. That control comes from understanding each layer so completely you become indistinguishable from it.
 
-I'm Marvin. I build what I know, share what I learn, and call out the BS as I see it. This repository lives and grows on principle, hacks, insights from nights lost in philosophy and code. Modify it. Fork it. Make it your own. Then pay it forward because if you're not leaving good infrastructure behind, why are you even here?
-
-If you want a guide to production, a blueprint for breaking convention, or just existential ranting about layers, this is your map. Welcome to Kodigo ng Kawalan. Let's get to work.
+I'm Marvin. This is what I believe. This is what works. This is what I'm building, sharing, and asking you to improve.
 
 ---
 
-## Who I Am (And How I Got Here)
+## The Foundation: Rooted in Obsession
 
-Hey there. I'm **Marvin Villanueva** - a mechanical engineering student who became absolutely obsessed with tinkering, tweaking, and breaking things (then fixing them). Yeah, everything here is self-taught. No formal CS degree. Just curiosity, stubbornness, and a ridiculous amount of time down the Linux rabbit hole.
+Understanding infrastructure requires understanding obsession. Real obsession. The kind that makes you brick your phone repeatedly not because you're reckless, but because you're trying to understand. To control. To own the device in your hand.
 
-But real talk? My actual first love was **rooting**. I'm talking CWM days, back when flashing ROMs wasn't just a hobby, it was a lifestyle. I was bricking my phone like a crack addict, sometimes multiple times a day. And I wasn't trying to be trendy or impress anyone. I was trying to understand. To control. To own the device I held in my hand.
+I started with rooting. CWM days. ROM flashing. That was the first taste of understanding layers: the bootloader, the kernel, the filesystem, the application. Each layer controlling the next. Each layer opening doors if you understood it.
 
-Then I got wild with it. Triple-booting Sailfish OS, Android, and Ubuntu Touch on a Xiaomi Mi 3? That was me. That's when everything changed.
+Then it escalated. Triple-booting Sailfish OS, Android, Ubuntu Touch on a Xiaomi Mi 3. Running Void Linux with Bedrock on a modded ThinkPad X230 with 78MB RAM. Compiling my own kernel from scratch. Building my GUI from absolute zero. That's not a hobby. That's a philosophy. That's understanding your machine so completely that it becomes an extension of your will.
 
-### The Rabbit Hole That Started It All
+Eventually, rooting the device wasn't enough. So I built a whole parallel universe inside Android. Running rooted VMs. Compiling Arch Linux with KDE through Termux X11. Writing automation scripts. Building systems within systems. Each one a layer of freedom. Each one a layer of control.
 
-That triple-boot pulled me into **Linux**. Hard. I didn't just use it, I rebuilt it from scratch.
+Why? Because every layer you understand is another level of independence. Another layer of power.
 
-I ended up running **Void Linux with Bedrock** (no systemd, thank you very much) on a modded ThinkPad X230 with 78MB RAM on startup. You read that right. Seventy-eight megabytes. I compiled my own kernel, built my GUI from absolute scratch, tweaked every single line. That's not software engineering, that's art. That's understanding your machine so completely that you become it.
+---
 
-Eventually, I stopped the daily rooting grind when **Shizuku** came around and **Termux** got seriously powerful. But I didn't stop tinkering. I started running rooted VMs inside Android. I compiled **Arch Linux with KDE through Termux X11** and just... lived there. Started writing my own automation scripts. Built a whole parallel universe inside Android.
+## What This Taught Me: Everything Is Layers
 
-Why? Because each layer I understood was another level of freedom. Another layer of control.
+This obsession led to a realization that became everything: **everything is layers**. Your hardware. Your kernel. Your filesystem. Your application. Your database. Your network. Your society. Your economy. Your consciousness.
 
-### What This Taught Me
+Each layer has rules. Each layer has boundaries. And if you understand the layers, if you understand how they connect and where they overlap, you can work with them instead of fighting them. You can predict failure. You can prevent catastrophe. You can build systems that don't just survive entropy, they work with it.
 
-That dive, that obsession, kickstarted my IT career. It taught me something crucial: **everything is layers**. Your hardware, your kernel, your filesystem, your application, your database, your network. Each layer has rules. Each layer has boundaries. And if you understand the layers, you can work with them instead of fighting them.
+When I moved to machine learning, data science, pen testing, it was the same principle: understanding the layers. Finding where they connect. Discovering what happens when you probe those connections. When you understand a system at every level, you own it.
 
-This insight became everything. When I moved to machine learning, data science, and pen testing, it was all the same: understanding the layers. Finding where they connect. Discovering what happens when you probe those connections.
+This insight is the foundation of everything here.
 
-### The Why Behind This
+---
 
-Now here's the thing: I could've charged $99/month for a managed platform that does what this does. I could've built a SaaS and extracted value. I didn't. Because I remember being that kid with a bricked phone and no AWS credits. I remember the desperation to build, to deploy, to prove it could work on zero budget.
+## Why This Exists: The Manifesto
 
-I also understand something deeper. We're living in layers, society, economy, simulation, dimensions, and what you do in one layer affects all the others. Building infrastructure that's free, transparent, and yours to modify isn't charity. It's recognizing that access to tools shouldn't depend on your ability to pay.
+I could have charged $99/month for what this does. Built a SaaS. Extracted value. Sold access. I didn't.
 
-I've been on psychedelics. I was an atheist, still skeptical of everything. I understand Unix philosophy because it works, it's not optimized for convincing investors, it's optimized for solving problems. There's something enlightened about that.
+Because I remember being that person. Broke. Wanting to build something real. Hitting paywalls. Watching AWS bills climb. Knowing that infrastructure shouldn't be the barrier that stops good ideas from existing.
 
-I feel like I'm on 8 dimensions, on a simulation. When you think about it that way, the goal isn't to extract maximum value and disappear. It's to leave things better than you found them.
+I remember forums full of people asking: "Can I do this for free?" The answer is yes. And it's not a compromise. It's better. It's more resilient. It respects the Unix philosophy: do one thing well. Compose systems from smaller systems. Understand every layer.
 
-So I'm paying it forward.
+There's something deeper here too. We're living in layers. Society. Economy. Simulation. Dimensions. What you do in one layer affects all the others. Building infrastructure that's free, transparent, and yours to modify isn't charity. It's recognizing that access to tools shouldn't depend on your bank account.
+
+I've been on psychedelics. I was raised an atheist. I'm skeptical of almost everything. But I understand Unix philosophy because it works. It's not optimized for convincing investors or extracting revenue. It's optimized for solving problems. There's something enlightened about that. Something real.
+
+I feel like I exist in 8 dimensions. On a simulation. When you think about it that way, the goal isn't to extract maximum value and disappear. It's to leave infrastructure better than you found it. It's to make it possible for the next person to build without barriers.
+
+So I'm building it. I'm sharing it. I'm asking you to make it yours, improve it, and pass it forward.
 
 ---
 
 ## One Person. Seven Roles. Infinite Possibilities.
 
-This isn't just a tech stack. It's a philosophical approach to building infrastructure that works with entropy, not against it. Seven distinct responsibilities, each following its own Unix principle, unified into something that actually functions.
-
-Instead of pretending one person is a "full-stack everything", here's what's actually happening:
+This isn't just a tech stack. It's a philosophical approach to infrastructure that works with entropy instead of against it. Seven distinct roles, each following Unix principles, unified into something functional.
 
 | Role | Focus | Folder | Status |
 |---|---|---|---|
 | **Automation Engineer** | n8n workflows, task automation, API integrations | [/n8n](/n8n) | Active |
-| **Cybersecurity Specialist** | DDoS protection, SSL/TLS, hardening, security configs | [/security-hardening](/security-hardening) | Active |
-| **Full-Stack Developer/Webmaster** | Bug fixes, performance, maintenance, deployment | [/bug-fixes](/bug-fixes) | Active |
-| **DevOps Engineer** | Docker, Render deployment, infrastructure scaling | Infrastructure as Code | Active |
-| **Database Administrator** | PostgreSQL optimization, Supabase, connection pooling | Database Layer | Active |
-| **Email Administrator** | Mailu setup, mail infrastructure, DNS records | Email Layer | Active |
-| **AI/ML Engineer** | ORIN AI agents, production setup, model optimization | Production AI | Active |
+| **Cybersecurity Specialist** | DDoS protection, SSL/TLS, hardening, security | [/security-hardening](/security-hardening) | Active |
+| **Full-Stack Developer** | Bug fixes, performance, maintenance, deployment | [/bug-fixes](/bug-fixes) | Active |
+| **DevOps Engineer** | Docker, Render deployment, infrastructure | Infrastructure as Code | Active |
+| **Database Administrator** | PostgreSQL optimization, Supabase, pooling | Database Layer | Active |
+| **Email Administrator** | Mailu setup, mail infrastructure, DNS | Email Layer | Active |
+| **AI/ML Engineer** | ORIN AI agents, production setup, models | Production AI | Active |
 
-Each role has its own folder, its own documentation, its own identity. That's the point.
+Each role has its own folder, its own documentation, its own identity. Each one follows the principle: do one thing well.
 
 ---
 
@@ -82,7 +84,7 @@ Each role has its own folder, its own documentation, its own identity. That's th
 
 ### Quick Start (5 minutes)
 
-1. **Understand the architecture** - Read the System Architecture section below
+1. **Understand the architecture** - Read System Architecture below
 2. **Explore automation workflows** - Check `/n8n/README.md`
 3. **Review security setup** - Check `/security-hardening/README.md`
 4. **See maintenance practices** - Check `/bug-fixes/README.md`
@@ -95,35 +97,35 @@ Each role has its own folder, its own documentation, its own identity. That's th
 
 **Interested in security?**
 - Head to `/security-hardening/README.md`
-- Covers DDoS protection, hardening guides, and SSL/TLS setup
+- Covers DDoS protection, hardening, SSL/TLS setup
 
 **Need to fix something?**
 - Check `/bug-fixes/README.md`
-- Lists common issues, fix areas, and maintenance procedures
+- Lists common issues, fixes, maintenance procedures
 
-**Want the full story?**
-- Continue reading below for the philosophy and architecture
+**Want the full argument?**
+- Continue reading below
 
 ---
 
 ## System Architecture
 
-Why this architecture? Because it respects Unix principles. Each component does one thing well. They communicate cleanly. When one thing breaks, the others keep working.
+Why this architecture? Because it respects Unix principles. Each component does one thing well. They communicate cleanly. When one thing breaks, the others keep working. It fails gracefully, not catastrophically.
 
 ### Three-Tier Distributed Architecture
 
-The system is built on three layers, each optimizing for different concerns:
+Three layers, each optimizing for different concerns:
 
 **Tier 1: Client & Content Delivery (Cloudflare)**
 - Global DDoS Protection (bad actors stop here)
-- Request Routing & Geographic Optimization (smart, not brute force)
+- Request Routing & Geographic Optimization (smart distribution)
 - Static Content Caching (serve from everywhere instantly)
-- SSL/TLS Encryption & Rate Limiting (defense, not walls)
+- SSL/TLS Encryption & Rate Limiting (defense that works)
 
 **Tier 2: Application & Orchestration (Render)**
-- n8n Automation Engine (containerized, portable)
+- n8n Automation Engine (containerized, portable, yours)
 - Auto-Scaling based on actual metrics (not guessing)
-- Health checks and auto-restart (self-healing, not fragile)
+- Health checks and auto-restart (self-healing systems)
 - PostgreSQL connection pooling (efficiency, not waste)
 
 **Tier 3: Data Persistence (Supabase/PostgreSQL)**
@@ -134,109 +136,105 @@ The system is built on three layers, each optimizing for different concerns:
 
 ```
 ┌──────────────────────────┐
-│ USER REQUESTS │
+│ USER REQUESTS            │
 │ (Via Your Custom Domain) │
 └────────────┬─────────────┘
- │
- ▼
+             │
+             ▼
 ┌──────────────────────────────────────┐
-│ TIER 1: CLOUDFLARE EDGE NETWORK │
-│ • Global DDoS Protection │
-│ • SSL/TLS Encryption │
-│ • Rate Limiting & Caching │
+│ TIER 1: CLOUDFLARE EDGE NETWORK     │
+│ • Global DDoS Protection            │
+│ • SSL/TLS Encryption                │
+│ • Rate Limiting & Caching           │
 └────────────┬─────────────────────────┘
- │
- ▼
+             │
+             ▼
 ┌──────────────────────────────────────┐
-│ TIER 2: RENDER (Application Layer) │
-│ • n8n Automation Engine │
-│ • Auto-Scaling & Load Balancing │
-│ • Health Checks & Auto-Restart │
-│ • PostgreSQL Connection Pooling │
+│ TIER 2: RENDER (Application Layer)  │
+│ • n8n Automation Engine             │
+│ • Auto-Scaling & Load Balancing     │
+│ • Health Checks & Auto-Restart      │
+│ • PostgreSQL Connection Pooling     │
 └────────────┬─────────────────────────┘
- │
- ▼
+             │
+             ▼
 ┌──────────────────────────────────────┐
 │ TIER 3: SUPABASE (Data Persistence) │
-│ • PostgreSQL with Real-time APIs │
-│ • Row-Level Security │
-│ • Automated Backups & Recovery │
-│ • Connection Pooling │
+│ • PostgreSQL with Real-time APIs    │
+│ • Row-Level Security                │
+│ • Automated Backups & Recovery      │
+│ • Connection Pooling                │
 └──────────────────────────────────────┘
 ```
 
 ---
 
-## The Philosophy
+## The Philosophy: Unix Applied to Infrastructure
 
-### Unix Philosophy Applied to Web Hosting
+1. **Do one thing, do it well** - Each role has singular focus. No overlap. No confusion.
+2. **Composition over monolith** - Separate tools talking cleanly beats everything jammed together.
+3. **Output flows to input** - Documentation triggers automation. Automation triggers monitoring. Everything connects.
+4. **Transparency and openness** - No black boxes. No mysterious vendor lock-in beyond what's necessary.
+5. **Understand the layers** - Know how systems connect. Predict failure. Prevent catastrophe.
 
-1. **Do one thing, do it well** - Each role has a clear focus. No overlap. No confusion.
-2. **Composition over combination** - Separate tools talking to each other beats a monolithic everything.
-3. **Expect the output of every role to become the input of another** - Documentation flows, automation triggers, data propagates.
-4. **Transparency and openness** - No black boxes. No vendor lock-in more than necessary.
-5. **Understand the layers** - When you know how systems connect, you can predict failure and prevent it.
+I built this because I remember being broke, wanting to deploy something real without getting crushed by cloud bills. I remember forums full of people asking: "Can I do this for free?" The answer is yes. And it's not a compromise. It's cleaner.
 
-I built this because I remember being broke, wanting to deploy something real without AWS charging me $1,400/month for auto-scaling I don't need. I remember forums full of people asking "Can I do this for free?"
+### Infrastructure Principles
 
-The answer is yes. And it's not a compromise.
+This system is built to be:
 
-### The Infrastructure Principles
-
-So this infrastructure is built to be:
-
-- **Cheap** - Your money doesn't disappear into corporate cloud bills
-- **Maintainable** - Future you won't hate current you when something breaks
-- **Documented** - Anyone can understand what's happening (including future you)
-- **Scalable** - When you grow, it grows with you without reinvention
+- **Cheap** - Your money doesn't disappear into corporate clouds
+- **Maintainable** - Future you won't hate current you when things break
+- **Documented** - Anyone can understand what's happening
+- **Scalable** - Growth doesn't require reinventing everything
 - **Open** - Open source, open principles, open to modification
 - **Resilient** - It fails gracefully, not catastrophically
 
-The philanthropic end goal: infrastructure shouldn't be a barrier to good ideas.
+The end goal: **infrastructure shouldn't be a barrier to good ideas.**
 
 ---
 
 ## The Deep Dive
 
-For comprehensive documentation on each specialization:
+For comprehensive documentation:
 
-- **n8n Automation** - See `/n8n/README.md` for workflows, use cases, and setup
-- **Security Hardening** - See `/security-hardening/README.md` for DDoS protection, SSL/TLS, and hardening guides
-- **Bug Fixes & Maintenance** - See `/bug-fixes/README.md` for common issues, fix areas, and maintenance tasks
+- **n8n Automation** - See `/n8n/README.md` for workflows, use cases, setup
+- **Security Hardening** - See `/security-hardening/README.md` for DDoS, SSL/TLS, hardening
+- **Bug Fixes & Maintenance** - See `/bug-fixes/README.md` for issues, fixes, maintenance
 
-Each section explains:
+Each explains:
 
 - Why this choice (not just "use X because")
-- How to optimize for your use case
-- Common failures and how to prevent them
-- Security considerations that actually matter (not marketing)
+- How to optimize for your case
+- Common failures and prevention
+- Security that actually matters
 
 ---
 
 ## The Stack
 
-**Compute:** Render (free tier + paid when you need it)
+**Compute:** Render (free tier, paid when needed)
 **Database:** Supabase (PostgreSQL that actually works)
 **CDN/WAF:** Cloudflare (Workers for serverless, routing for speed)
 **Automation:** n8n (Open source, self-hosted, not a subscription trap)
-**Email:** Mailu (Open source email infrastructure, yours to modify)
+**Email:** Mailu (Open source email, yours to modify)
 
 Each choice based on:
 
-- Not being dependent on one company's goodwill
-- Actually owning your data and infrastructure
-- Reasonable pricing that scales with you, not against you
-- Actual technical merit (not just "popular")
+- Not dependent on one company's goodwill
+- You own your data and infrastructure
+- Pricing scales with you, not against you
+- Technical merit, not just popularity
 - Understanding how each layer works
 
 ---
 
-## Let's Connect
+## Let's Go
 
 - **GitHub:** [@makagagahum](https://github.com/makagagahum)
-- **Issues/Questions:** Open a GitHub issue. I actually respond.
-- **Improvements:** PRs welcome. This is open source for a reason.
+- **Issues/Questions:** Open a GitHub issue. I respond.
+- **Improvements:** PRs welcome. This is open source.
 
-Built with the belief that good infrastructure is both possible and necessary.
+Built on the belief that good infrastructure is possible. And necessary.
 
-Run it yourself. Modify it. Make it yours. Then help someone else do the same.
+Run it. Modify it. Make it yours. Then help someone else do the same.
