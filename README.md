@@ -1,4 +1,4 @@
-# Kodigo ng Kawalan
+# Kodigo ng Kawalan 👁️
 
 **Likha sa Wala** | Unix philosophy. Distributed systems. Layers all the way down.
 
