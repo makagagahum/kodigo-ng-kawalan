@@ -53,3 +53,14 @@ This folder contains bug fixes, patches, performance improvements, and maintenan
 ## 📝 Notes
 
 All bug fixes are tested and documented. Production deployments follow zero-downtime deployment practices.
+
+
+---
+
+## 📚 Related Guides & Logs
+
+These deployment, maintenance, and fix guides belong in this role:
+
+- **[DEPLOY_GUIDE.md](../DEPLOY_GUIDE.md)** - ORIN AI deployment and domain setup
+- **[FIX_ORIN_WORK_MASCOT.md](../FIX_ORIN_WORK_MASCOT.md)** - Urgent fixes for visual issues
+- **[DEPLOYMENT_LOG_SESSION_2025_01_13.md](../DEPLOYMENT_LOG_SESSION_2025_01_13.md)** - Production deployment logs and troubleshooting
