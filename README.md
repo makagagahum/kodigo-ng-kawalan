@@ -239,7 +239,7 @@ Hit me up directly:
 - **GitHub:** Open an issue, contribute, make it yours
 - **Orin AI:** That's the n8n automation running this whole thing. If you want to talk to what we built, visit [https://orin.work/](https://orin.work/) or [https://www.facebook.com/orinworks](https://www.facebook.com/orinworks)
 
-No corporate support tiers. No waiting in queues. Just builders talking to builders.
+Talk to me. That's it.
 
 ---
 ---
