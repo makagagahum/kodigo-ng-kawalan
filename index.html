@@ -352,8 +352,8 @@
         </script>
         <div class="fb-customerchat" attribution="biz_inbox" page_id="100063623736284"></div>
 
-        <main>
-            <section class="py-24 md:py-32 px-4 sm:px-6 lg:px-8 hero-bg">
+        <main class="pb-32">
+            <section class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 hero-bg">
                 <div class="max-w-5xl mx-auto text-center">
                     <div id="hero-orin-trigger" class="floating-orin mb-12 cursor-pointer">
                         <img src="https://i.imgur.com/7JAu9YG.png" alt="ORIN AI Agent Avatar" class="w-20 h-28 mx-auto" loading="lazy">
@@ -376,7 +376,7 @@
                 </div>
             </section>
            
-            <section id="features" class="py-24 sm:py-32">
+            <section id="features" class="py-20 sm:py-32">
                 <div class="text-center mb-20 max-w-4xl mx-auto px-4">
                     <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">Transform Your Business Operations</h2>
                     <p class="mt-6 text-xl text-[var(--gray-text)] leading-relaxed animated-element animate-fade-in" style="transition-delay: 150ms;">ORIN AI is packed with features to supercharge customer interactions.</p>
@@ -417,7 +417,7 @@
                 </div>
             </section>
             
-            <section id="statistics" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+            <section id="statistics" class="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-7xl mx-auto">
                      <div class="text-center mb-20 max-w-3xl mx-auto">
                         <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">The Numbers Don't Lie.</h2>
@@ -455,7 +455,7 @@
                 </div>
             </section>
 
-            <section id="comparison" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+            <section id="comparison" class="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-7xl mx-auto">
                      <div class="text-center mb-20 max-w-3xl mx-auto">
                         <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">A Smarter Investment. <span class="hyper-text">A Clearer Choice.</span></h2>
@@ -511,7 +511,7 @@
                 </div>
             </section>
 
-            <section id="pricing" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+            <section id="pricing" class="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-3xl mx-auto text-center animated-element animate-fade-in">
                     <p class="font-semibold text-[var(--accent-green)] text-sm uppercase tracking-widest">Limited Offer</p>
                     <h2 class="text-5xl md:text-7xl tracking-tighter mt-4 text-[var(--heading-color)]">Get Your AI Agent Today</h2>
@@ -537,7 +537,7 @@
                 </div>
             </section>
 
-            <section id="team" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+            <section id="team" class="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-7xl mx-auto">
                     <div class="text-center mb-20 max-w-3xl mx-auto">
                         <h2 class="text-5xl md:text-7xl tracking-tighter text-[var(--heading-color)] animated-element animate-fade-in">The Minds Behind <span class="hyper-text">ORIN AI</span></h2>
@@ -851,16 +851,38 @@
                 if (clickCount === 5) {
                     clickCount = 0;
                     gameContainer.classList.add('active');
-                    PacManGame(canvas); // Launch the correct game
+                    
+                    const launchGame = () => {
+                        // Ensure we don't call this multiple times
+                        if (gameContainer.dataset.gameLoaded === 'true') return;
+                        gameContainer.dataset.gameLoaded = 'true';
+                        PacManGame(canvas);
+                    };
+
+                    // Display loading message while we wait
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = 'white'; ctx.font = '20px sans-serif'; ctx.textAlign = 'center';
+                    ctx.fillText('Loading Game...', canvas.width / 2, canvas.height / 2);
+
+                    // Attach the onload event first, then check if it's already complete.
+                    orinHeadAsset.onload = launchGame;
+                    if (orinHeadAsset.complete) {
+                        launchGame();
+                    }
                 }
             });
         });
 
         closeButton.addEventListener('click', () => {
             gameContainer.classList.remove('active');
+            gameContainer.dataset.gameLoaded = 'false'; // Reset for next time
             // Game loop will be stopped via observer
         });
     }
+
+    // --- Preload Critical Game Assets ---
+    const orinHeadAsset = new Image();
+    orinHeadAsset.src = 'https://i.imgur.com/7JAu9YG.png';
 
     // --- PAC-MAN GAME MODULE ---
     function PacManGame(canvas) {
@@ -905,13 +927,6 @@
         let powerPelletActive = false;
         let powerPelletTimer;
 
-        // --- Asset Loading ---
-        const orinHeadAsset = new Image();
-        orinHeadAsset.src = 'https://i.imgur.com/7JAu9YG.png';
-        let assetsLoaded = false;
-        orinHeadAsset.onload = () => {
-            assetsLoaded = true;
-        };
         // --- Audio Assets & State ---
         const sounds = {
             gameStart: new Audio('https://www.classicgaming.cc/classics/pacman/sounds/pacman_beginning.wav'),
@@ -925,7 +940,7 @@
 
         class Pacman {
             constructor(x, y) { this.x = x; this.y = y; this.dx = 0; this.dy = 0; this.nextDx = 0; this.nextDy = 0; }
-            draw() { if (assetsLoaded) ctx.drawImage(orinHeadAsset, this.x * TILE_SIZE, this.y * TILE_SIZE, TILE_SIZE, TILE_SIZE); }
+            draw() { ctx.drawImage(orinHeadAsset, this.x * TILE_SIZE, this.y * TILE_SIZE, TILE_SIZE, TILE_SIZE); }
             update() {
                 const isAtGridCenter = (this.x % 1 === 0) && (this.y % 1 === 0);
 
@@ -1113,19 +1128,9 @@
             gameState = 'playing';
             gameLoop();
         }
-        
-        // --- Initializer ---
-        // This function now waits for assets before starting.
-        function initialize() {
-            ctx.fillStyle = 'white';
-            ctx.font = '20px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('Loading...', canvas.width / 2, canvas.height / 2);
-            
-            orinHeadAsset.onload = startGame;
-            if (orinHeadAsset.complete) startGame(); // If image is cached, start immediately.
-        }
-        initialize();
+
+        // The game is now started directly, relying on the preloaded asset.
+        startGame();
     }
 
     // ---
@@ -1305,5 +1310,21 @@
         animate();
     }
     </script>
-</body>
+</html>     cancelAnimationFrame(animationFrameId);
+            init();
+            animate();
+        };
+
+        window.addEventListener('resize', () => {
+            cancelAnimationFrame(animationFrameId);
+            clearTimeout(window.resizeLag);
+            window.resizeLag = setTimeout(reinitCanvas, 250);
+        });
+        
+        window.addEventListener('themeChanged', reinitCanvas);
+        
+        init();
+        animate();
+    }
+    </script>
 </html>
