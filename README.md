@@ -234,13 +234,8 @@ Each choice based on:
 - **GitHub:** [@makagagahum](https://github.com/makagagahum)
 - **Issues/Questions:** Open a GitHub issue. I respond.
 - **Improvements:** PRs welcome. This is open source.
-
-Let's Go
+- 
 --------
-
-* **GitHub:** [@makagagahum](https://github.com/makagagahum)
-* **Issues/Questions:** Open a GitHub issue. I respond.
-* **Improvements:** PRs welcome. This is open source.
 
 Good infrastructure is possible. Open source. Self-hosted. Yours to modify.
 
