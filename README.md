@@ -54,9 +54,9 @@ I remember forums full of people asking: "Can I do this for free?" The answer is
 
 There's something deeper here too. We're living in layers. Society. Economy. Simulation. Dimensions. What you do in one layer affects all the others. Building infrastructure that's free, transparent, and yours to modify isn't charity. It's recognizing that access to tools shouldn't depend on your bank account.
 
-I've been on psychedelics. I was raised an atheist. I'm skeptical of almost everything. But I understand Unix philosophy because it works. It's not optimized for convincing investors or extracting revenue. It's optimized for solving problems. There's something enlightened about that. Something real.
+There are times when reality doesn’t seem so flat. Maybe you end up seeing through to the extra layers after chasing some questions farther than most would bother. Some perspectives aren’t learned in classrooms or by tradition; they come from looking under every rock yourself. The Unix philosophy proves itself in practice. It isn’t designed for investor pitches or squeezing money out of users. It was made to solve real problems, and in action it brings something almost luminous, something honest.
 
-I feel like I exist in 8 dimensions. On a simulation. When you think about it that way, the goal isn't to extract maximum value and disappear. It's to leave infrastructure better than you found it. It's to make it possible for the next person to build without barriers.
+If you ever get the sense that you’re operating on a different plane, maybe seven or eight at a time, that changes your goals. It’s not about maximizing short-term extraction and vanishing. It’s about leaving what you build more open, more useful, less encumbered, for whoever comes after you. The next builder shouldn’t have to fight through the same barriers.
 
 So I'm building it. I'm sharing it. I'm asking you to make it yours, improve it, and pass it forward.
 
