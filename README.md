@@ -251,4 +251,8 @@ Open source. Self-hosted. Yours to modify.
 
 *The Unix way: Do one thing, do it well, chain it ruthlessly.*
 
+![Insights Processed](https://komarev.com/ghpvc/?username=makagagahum&color=8A2BE2&style=flat-square&label=LAYERS+EXAMINED)
+
+</div>
+
 </div>
