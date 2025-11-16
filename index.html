@@ -905,6 +905,13 @@
         let powerPelletActive = false;
         let powerPelletTimer;
 
+        // --- Asset Loading ---
+        const orinHeadAsset = new Image();
+        orinHeadAsset.src = 'https://i.imgur.com/7JAu9YG.png';
+        let assetsLoaded = false;
+        orinHeadAsset.onload = () => {
+            assetsLoaded = true;
+        };
         // --- Audio Assets & State ---
         const sounds = {
             gameStart: new Audio('https://www.classicgaming.cc/classics/pacman/sounds/pacman_beginning.wav'),
@@ -913,15 +920,12 @@
             eatGhost: new Audio('https://www.classicgaming.cc/classics/pacman/sounds/pacman_eatghost.wav'),
             siren: new Audio('https://www.classicgaming.cc/classics/pacman/sounds/pacman_intermission.wav')
         };
-        sounds.siren.loop = true;
-        let gameRunning = false;
-
-        const orinHead = new Image();
-        orinHead.src = 'https://i.imgur.com/7JAu9YG.png';
+        Object.values(sounds).forEach(sound => { sound.preload = 'auto'; });
+        let gameState = 'ready'; // 'ready', 'playing', 'gameOver'
 
         class Pacman {
             constructor(x, y) { this.x = x; this.y = y; this.dx = 0; this.dy = 0; this.nextDx = 0; this.nextDy = 0; }
-            draw() { ctx.drawImage(orinHead, this.x * TILE_SIZE, this.y * TILE_SIZE, TILE_SIZE, TILE_SIZE); }
+            draw() { if (assetsLoaded) ctx.drawImage(orinHeadAsset, this.x * TILE_SIZE, this.y * TILE_SIZE, TILE_SIZE, TILE_SIZE); }
             update() {
                 const isAtGridCenter = (this.x % 1 === 0) && (this.y % 1 === 0);
 
@@ -980,7 +984,8 @@
                 const dx = target.x - this.x, dy = target.y - this.y;
                 let moveX = 0, moveY = 0;
                 if (Math.abs(dx) > Math.abs(dy)) { moveX = Math.sign(dx); } else { moveY = Math.sign(dy); }
-                if (this.canMove(moveX, moveY)) { this.x += moveX * 0.05; this.y += moveY * 0.05; } // Ghost speed
+                if (this.canMove(moveX, moveY)) { this.x += moveX * 0.05; } // Ghost speed
+                if (this.canMove(0, moveY)) { this.y += moveY * 0.05; }
             }
             canMove(dx, dy) { return map[Math.round(this.y + dy)] && map[Math.round(this.y + dy)][Math.round(this.x + dx)] !== 1; }
             frighten() { this.isFrightened = true; }
@@ -992,7 +997,7 @@
         let ghosts = [ new Ghost(13, 11, '😡'), new Ghost(14, 11, '😡'), new Ghost(13, 15, '😡'), new Ghost(14, 15, '😡') ];
 
         const keydownHandler = e => {
-            if (!gameRunning) return;
+            if (gameState !== 'playing') return;
             if (e.key === 'ArrowUp') { pacman.nextDx = 0; pacman.nextDy = -1; }
             else if (e.key === 'ArrowDown') { pacman.nextDx = 0; pacman.nextDy = 1; }
             else if (e.key === 'ArrowLeft') { pacman.nextDx = -1; pacman.nextDy = 0; }
@@ -1000,10 +1005,17 @@
         };
 
         const tapHandler = e => {
-            if (!gameRunning) return;
             const rect = canvas.getBoundingClientRect();
             const tapX = e.clientX - rect.left;
             const tapY = e.clientY - rect.top;
+
+            if (gameState === 'gameOver') {
+                cleanup();
+                startGame();
+                return;
+            }
+            if (gameState !== 'playing') return;
+
             const pacmanPixelX = pacman.x * TILE_SIZE + TILE_SIZE / 2;
             const pacmanPixelY = pacman.y * TILE_SIZE + TILE_SIZE / 2;
             const dx = tapX - pacmanPixelX;
@@ -1032,27 +1044,25 @@
                         ghost.reset();
                     } else {
                         stopGame();
-                        gameOver = true;
                     }
                 }
             }
         }
 
         function stopGame() {
-            gameRunning = false;
+            gameState = 'gameOver';
             sounds.siren.pause();
             sounds.death.play().catch(e => {});
         }
 
         function gameLoop() {
-            if (!gameRunning && !gameOver) return;
-            if (gameOver) {
+            if (gameState === 'gameOver') {
                 ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = 'white'; ctx.font = '40px sans-serif'; ctx.textAlign = 'center';
                 ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
                 ctx.font = '20px sans-serif';
                 ctx.fillText(`Score: ${score}`, canvas.width / 2, canvas.height / 2 + 40);
-                ctx.fillText('Click to close', canvas.width / 2, canvas.height - 30);
+                ctx.fillText('Click to Restart', canvas.width / 2, canvas.height - 30);
                 return;
             }
 
@@ -1060,20 +1070,23 @@
             drawMap();
             pacman.update();
             pacman.draw();
-            ghosts.forEach(g => { if(gameRunning) g.update(pacman); g.draw(); });
+            ghosts.forEach(g => { if(gameState === 'playing') g.update(pacman); g.draw(); });
             checkCollisions();
 
             ctx.fillStyle = 'white'; ctx.font = '20px sans-serif'; ctx.textAlign = 'left';
             ctx.fillText(`Score: ${score}`, 10, 20);
 
-            if (gameRunning) {
+            if (gameState === 'playing' && sounds.gameStart.paused && sounds.siren.paused) {
+                sounds.siren.play().catch(e => {});
+            }
+
+            if (gameState !== 'ready') {
                 animationFrameId = requestAnimationFrame(gameLoop);
             }
         }
 
         function cleanup() {
-            gameRunning = false;
-            gameOver = false;
+            gameState = 'ready';
             cancelAnimationFrame(animationFrameId);
             clearTimeout(powerPelletTimer);
             Object.values(sounds).forEach(sound => { sound.pause(); sound.currentTime = 0; });
@@ -1090,14 +1103,29 @@
         });
         observer.observe(gameContainer, { attributes: true });
 
-        // Initialize and start the game
-        cleanup(); // Ensure a clean state
-        document.addEventListener('keydown', keydownHandler);
-        canvas.addEventListener('click', tapHandler);
-        sounds.gameStart.play().catch(e => { gameRunning = true; }); // Start game even if audio fails
-        sounds.gameStart.onended = () => { if (!gameOver) sounds.siren.play().catch(e => {}); };
-        gameRunning = true;
-        gameLoop();
+        function startGame() {
+            cleanup();
+            sounds.siren.loop = true;
+            document.addEventListener('keydown', keydownHandler);
+            canvas.addEventListener('click', tapHandler);
+            
+            sounds.gameStart.play().catch(e => {});
+            gameState = 'playing';
+            gameLoop();
+        }
+        
+        // --- Initializer ---
+        // This function now waits for assets before starting.
+        function initialize() {
+            ctx.fillStyle = 'white';
+            ctx.font = '20px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Loading...', canvas.width / 2, canvas.height / 2);
+            
+            orinHeadAsset.onload = startGame;
+            if (orinHeadAsset.complete) startGame(); // If image is cached, start immediately.
+        }
+        initialize();
     }
 
     // ---
@@ -1258,27 +1286,6 @@
             }
             connect();
         }
-        
-        function reinitCanvas() {
-            cancelAnimationFrame(animationFrameId);
-            init();
-            animate();
-        };
-
-        window.addEventListener('resize', () => {
-            cancelAnimationFrame(animationFrameId);
-            clearTimeout(window.resizeLag);
-            window.resizeLag = setTimeout(reinitCanvas, 250);
-        });
-        
-        window.addEventListener('themeChanged', reinitCanvas);
-        
-        init();
-        animate();
-    }
-    </script>
-</body>
-</html> }
         
         function reinitCanvas() {
             cancelAnimationFrame(animationFrameId);
