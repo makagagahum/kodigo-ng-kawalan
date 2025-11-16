@@ -600,7 +600,7 @@
                         <img src="https://i.imgur.com/7JAu9YG.png" alt="ORIN AI Logo" class="h-6 sm:h-8 w-auto">
                         <span class="hidden sm:inline">ORIN AI</span>
                     </a>
-                    <div class="flex items-center gap-4 sm:gap-6 text-base sm:text-lg font-medium">
+                    <div class="flex items-center gap-3 sm:gap-6 text-sm sm:text-base font-medium">
                         <a href="#features" class="hover:text-[var(--accent-green)] transition-colors">Features</a>
                         <a href="#statistics" class="hover:text-[var(--accent-green)] transition-colors">Stats</a>
                         <a href="#pricing" class="hover:text-[var(--accent-green)] transition-colors">Pricing</a>
@@ -851,24 +851,9 @@
                 if (clickCount === 5) {
                     clickCount = 0;
                     gameContainer.classList.add('active');
-                    
-                    const launchGame = () => {
-                        // Ensure we don't call this multiple times
-                        if (gameContainer.dataset.gameLoaded === 'true') return;
-                        gameContainer.dataset.gameLoaded = 'true';
-                        PacManGame(canvas);
-                    };
-
-                    // Display loading message while we wait
-                    const ctx = canvas.getContext('2d');
-                    ctx.fillStyle = 'white'; ctx.font = '20px sans-serif'; ctx.textAlign = 'center';
-                    ctx.fillText('Loading Game...', canvas.width / 2, canvas.height / 2);
-
-                    // Attach the onload event first, then check if it's already complete.
-                    orinHeadAsset.onload = launchGame;
-                    if (orinHeadAsset.complete) {
-                        launchGame();
-                    }
+                    // The manager's only job is to activate the container and call the game module.
+                    // The game module itself will handle its own loading.
+                    PacManGame(canvas);
                 }
             });
         });
@@ -879,10 +864,6 @@
             // Game loop will be stopped via observer
         });
     }
-
-    // --- Preload Critical Game Assets ---
-    const orinHeadAsset = new Image();
-    orinHeadAsset.src = 'https://i.imgur.com/7JAu9YG.png';
 
     // --- PAC-MAN GAME MODULE ---
     function PacManGame(canvas) {
@@ -926,6 +907,10 @@
         let animationFrameId;
         let powerPelletActive = false;
         let powerPelletTimer;
+
+        // --- Asset Loading (Self-Contained) ---
+        const orinHeadAsset = new Image();
+        orinHeadAsset.src = 'https://i.imgur.com/7JAu9YG.png';
 
         // --- Audio Assets & State ---
         const sounds = {
@@ -1129,8 +1114,19 @@
             gameLoop();
         }
 
-        // The game is now started directly, relying on the preloaded asset.
-        startGame();
+        // --- Initializer ---
+        // This function now waits for assets before starting.
+        function initialize() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'white';
+            ctx.font = '20px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Loading Game...', canvas.width / 2, canvas.height / 2);
+            
+            orinHeadAsset.onload = startGame;
+            if (orinHeadAsset.complete) startGame(); // If image is cached, start immediately.
+        }
+        initialize();
     }
 
     // ---
@@ -1294,23 +1290,6 @@
         
         function reinitCanvas() {
             cancelAnimationFrame(animationFrameId);
-            init();
-            animate();
-        };
-
-        window.addEventListener('resize', () => {
-            cancelAnimationFrame(animationFrameId);
-            clearTimeout(window.resizeLag);
-            window.resizeLag = setTimeout(reinitCanvas, 250);
-        });
-        
-        window.addEventListener('themeChanged', reinitCanvas);
-        
-        init();
-        animate();
-    }
-    </script>
-</html>     cancelAnimationFrame(animationFrameId);
             init();
             animate();
         };
