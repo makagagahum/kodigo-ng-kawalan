@@ -34,7 +34,7 @@ Why? Because every layer you understand is another level of independence. Anothe
 
 ## What This Taught Me: Everything Is Layers
 
-This obsession led to a realization that became everything: **everything is layers**. Your hardware. Your kernel. Your filesystem. Your application. Your database. Your network. Your society. Your economy. Your consciousness.
+This obsession led to a realization that became everything: *everything is layers*. Your hardware. Your kernel. Your filesystem. Your application. Your database. Your network. Your society. Your economy. Your consciousness.
 
 Each layer has rules. Each layer has boundaries. And if you understand the layers, if you understand how they connect and where they overlap, you can work with them instead of fighting them. You can predict failure. You can prevent catastrophe. You can build systems that don't just survive entropy, they work with it.
 
@@ -64,7 +64,7 @@ So I'm building it. I'm sharing it. I'm asking you to make it yours, improve it,
 
 ## One Person. Seven Roles. Infinite Possibilities.
 
-This isn't just a tech stack. It's a philosophical approach to infrastructure that works with entropy instead of against it. Seven distinct roles, each following Unix principles, unified into something functional.
+This isn't just a tech stack. *It's a philosophical approach* to infrastructure that works with entropy instead of against it. Seven distinct roles, each following Unix principles, unified into something functional.
 
 | Role | Focus | Folder | Status |
 |---|---|---|---|
