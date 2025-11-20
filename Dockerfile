@@ -27,3 +27,6 @@ COPY package*.json ./
 
 # Install only production dependencies for runtime
 RUN npm install --production && npm cache clean --force --ignore-scripts
+
+# Start the application
+CMD ["npm", "start"]
