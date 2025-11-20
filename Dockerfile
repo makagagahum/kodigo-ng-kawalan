@@ -26,4 +26,4 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install only production dependencies for runtime
-npm install --production && npm cache clean --force --ignore-scripts
+RUN npm install --production && npm cache clean --force --ignore-scripts
