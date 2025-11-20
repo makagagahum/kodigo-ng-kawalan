@@ -252,4 +252,43 @@ It's free. It works. Use it.
 [![Insights Processed](https://camo.githubusercontent.com/df7694a097f0a0d0855e7a1583264768b06231302d15938db54cdb13d701f3bf/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d6d616b616761676168756d26636f6c6f723d384132424532267374796c653d666c61742d737175617265266c6162656c3d4c41594552532b4558414d494e4544)](https://github.com/makagagahum)
 </div>
 
+---
+
+## Frontend: ORIN Revamp Integration
+
+This repository now includes **orin-revamp**, a modern React 19 + TypeScript + Vite web application integrated into the kodigo-ng-kawalan infrastructure.
+
+### Quick Start
+
+```bash
+cd orin-revamp
+npm install
+npm run dev
+```
+
+The dev server runs on `http://localhost:5000`
+
+### Structure
+- **React 19** with TypeScript
+- **Vite 6** for fast development and optimized builds  
+- **Google Gemini API** for AI integration
+- **Recharts** for data visualization
+- **Lucide React** for icons
+
+### Build & Deploy
+
+```bash
+cd orin-revamp
+npm run build
+# Output: dist/ folder ready for deployment
+```
+
+Deployed to Render.com or Cloudflare Pages via `dist/` output.
+
+### Documentation
+
+See `/orin-revamp/ORIN_REVAMP_INTEGRATION_GUIDE.md` for comprehensive setup and deployment instructions.
+
+---
+
 </div>
