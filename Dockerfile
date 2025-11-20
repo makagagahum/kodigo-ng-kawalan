@@ -26,7 +26,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install only production dependencies for runtime
-RUN npm ci --only=production && npm cache clean --force
+RUN npm ci --only=production && npm cache clean --force --no-optional
 
 # Copy built files from builder
 COPY --from=builder /app/orin-revamp/dist ./orin-revamp/dist
