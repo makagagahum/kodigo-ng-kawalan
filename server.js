@@ -25,6 +25,17 @@ app.get('/health', (req, res) => {
 app.use(express.static(path.join(__dirname, 'orin-revamp/dist')));
 
 // API routes can go here
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    message: '✨ ORIN AI Server',
+    status: 'active',
+    endpoints: {
+      health: '/health',
+      status: '/api/status'
+    }
+  });
+});
 app.get('/api/status', (req, res) => {
   res.json({
     status: 'running',
