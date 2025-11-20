@@ -9,8 +9,8 @@ COPY package*.json ./
 COPY orin-revamp/package*.json ./orin-revamp/
 
 # Install all dependencies (including devDependencies for build)
-RUN npm ci --no-optional
-RUN cd orin-revamp && npm ci --no-optional
+RUN npm ci --no-optional --ignore-scripts
+RUN cd orin-revamp && npm ci --no-optional --ignore-scripts
 
 # Copy all source files
 COPY . .
@@ -26,4 +26,4 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install only production dependencies for runtime
-npm install --production && npm cache clean --force
+npm install --production && npm cache clean --force --ignore-scripts
