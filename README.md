@@ -288,6 +288,8 @@ Deployed to Render.com or Cloudflare Pages via `dist/` output.
 ### Documentation
 
 See `/orin-revamp/ORIN_REVAMP_INTEGRATION_GUIDE.md` for comprehensive setup and deployment instructions.
+- **Render Deployment**: See [DEPLOY_ORIN_REVAMP.md](DEPLOY_ORIN_REVAMP.md) for one-command deployment to Render free tier ($0/month)
+- **Quick Deploy Script**: Run `bash QUICK_DEPLOY.sh` to build and test locally before deployment
 
 ---
 
