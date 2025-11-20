@@ -26,15 +26,9 @@ app.use(express.static(path.join(__dirname, 'orin-revamp/dist')));
 
 // API routes can go here
 // Root endpoint
+// Serve legacy.html at root
 app.get('/', (req, res) => {
-  res.json({
-    message: '✨ ORIN AI Server',
-    status: 'active',
-    endpoints: {
-      health: '/health',
-      status: '/api/status'
-    }
-  });
+  res.sendFile(path.join(__dirname, 'legacy.html'));
 });
 app.get('/api/status', (req, res) => {
   res.json({
