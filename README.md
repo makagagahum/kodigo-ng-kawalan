@@ -212,3 +212,100 @@ See detailed salary data for all 8 roles in the [`/data`](./data) folder. Update
 **View raw data:** [`data/salary-data.json`](./data/salary-data.json)
 ---
 
+## Kodigo for Dummies: A Layman's Guide
+
+**Lost? Don't understand all the tech jargon?** This section is for you! Let's break down what this project is actually about in simple terms.
+
+### What is Kodigo ng Kawalan?
+
+Think of **Kodigo ng Kawalan** ("Code of Nothing/Void") as a **DIY instruction manual for building your own tech empire without spending money on big companies.**
+
+Instead of paying Amazon, Google, or Microsoft thousands of dollars per month to host your website or run your apps, this project shows you how to use **free and cheap tools** to do the same thing yourself.
+
+### The Simple Analogy: Building Your House
+
+Imagine you want to build a house:
+
+- **The Old Way (Expensive)**: You hire a contractor who owns everything. You pay him rent every month. If he decides to raise prices or shut down, you're homeless.
+
+- **The Kodigo Way (Cheap & Free)**: You learn to build it yourself using free materials. You understand every wall, every floor, every roof. You own it all. Nobody can take it away.
+
+### What Does This Project Actually Do?
+
+1. **Automates Work** (`n8n` - Automation Layer)
+   - Imagine a robot that does repetitive tasks for you 24/7
+   - Updates data, sends emails, posts on social media - all automatically
+   - You define the rules once, it works forever
+
+2. **Protects Your Website** (Cloudflare - Security Layer)
+   - Like a security guard blocking bad people from entering your house
+   - Stops hackers, handles millions of visitors without crashing
+   - Super fast because it's spread worldwide
+
+3. **Stores Your Data Safely** (Supabase/PostgreSQL - Data Layer)
+   - Think of it as a smart filing cabinet that organizes everything
+   - You can ask it questions: "Show me all users from Manila" and it answers in milliseconds
+   - Data is backed up so you never lose anything
+
+4. **Runs Your Code** (Render - App Server Layer)
+   - This is where your actual website/app lives and runs
+   - Like a shopkeeper running a store 24/7
+
+### The 8 Roles Explained
+
+One person (Marvin) does all these jobs by learning:
+
+| Job | What It Means | Why It Matters |
+|-----|---------------|----------------|
+| **Automation Engineer** | Sets up robots to do work | Nobody has to do boring tasks |
+| **DevOps Engineer** | Keeps everything running smoothly | Website never crashes |
+| **Security Specialist** | Protects from hackers | Your data stays safe |
+| **Full-Stack Developer** | Builds the actual website/app | People can use your service |
+| **Database Admin** | Organizes all the data | Information is organized & fast |
+| **AI/ML Engineer** | Makes smart systems | Chatbots, predictions, automation |
+| **Email Admin** | Manages email servers | You send/receive emails directly |
+| **AI Personality Architect** | Teaches AI to "think" like you | Your AI actually behaves right |
+
+### The Salary Comparison
+
+The salary table shows:
+
+- **Tech roles in Manila**: $21-$67 per day
+- **Average worker in Philippines**: $11-$12 per day (NCR) or ~$8-$10 (provinces)
+
+**What this means**: These tech skills can earn you **3-6x more** than traditional jobs. Learn these skills, and you can change your life.
+
+### What's the Goal?
+
+**Simple**: Build systems that work automatically, don't cost much, and you fully control.
+
+Instead of:
+- Paying $1,000/month to Amazon for hosting
+- Paying $500/month to Facebook for ads
+- Hiring 5 people to do repetitive work
+
+You use free tools + a little coding and automation to do it all yourself.
+
+### Who Should Care About This?
+
+1. **Tech enthusiasts** - Want to learn how real infrastructure works
+2. **Developers** - Want to build without paying corporations
+3. **Business owners** - Want to save money on tech costs
+4. **Students** - Want to understand how the internet actually works
+5. **Anyone curious** - Wondering what all these "layers" and "automation" really mean
+
+### The Honest Truth
+
+This project proves: **You don't need to be rich to build big things.** You need to:
+
+1. Understand the layers
+2. Learn the tools
+3. Connect them together
+4. Keep improving
+
+That's it. No magic. Just layers, Unix philosophy, and obsession.
+
+---
+
+**Still confused?** Email Marvin at [marvin@orin.work](mailto:marvin@orin.work) with your question. He'll explain it in even simpler terms.
+
