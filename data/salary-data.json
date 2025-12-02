@@ -1,0 +1,103 @@
+data/salary-data.json{
+  "lastUpdated": "2025-12-02T12:00:00Z",
+  "location": "Manila (NCR)",
+  "exchangeRate": {
+    "usdToPhp": 58,
+    "lastUpdated": "2025-12-02"
+  },
+  "minimumWage": {
+    "daily": 535,
+    "weekly": 2675,
+    "monthly": 11557
+  },
+  "roles": [
+    {
+      "title": "AI Personality Designer",
+      "minSalaryUsd": 4200,
+      "maxSalaryUsd": 8300,
+      "minSalaryPhp": 243600,
+      "maxSalaryPhp": 481400,
+      "minDailyPhp": 11577,
+      "maxDailyPhp": 23077,
+      "minHourlyPhp": 5.56,
+      "maxHourlyPhp": 11.10
+    },
+    {
+      "title": "Conversational AI Designer",
+      "minSalaryUsd": 5000,
+      "maxSalaryUsd": 10800,
+      "minSalaryPhp": 290000,
+      "maxSalaryPhp": 626400,
+      "minDailyPhp": 13846,
+      "maxDailyPhp": 29952,
+      "minHourlyPhp": 6.65,
+      "maxHourlyPhp": 14.40
+    },
+    {
+      "title": "Prompt Engineer",
+      "minSalaryUsd": 6700,
+      "maxSalaryUsd": 15900,
+      "minSalaryPhp": 388600,
+      "maxSalaryPhp": 922200,
+      "minDailyPhp": 18596,
+      "maxDailyPhp": 46277,
+      "minHourlyPhp": 8.94,
+      "maxHourlyPhp": 22.25
+    },
+    {
+      "title": "Conversation Designer",
+      "minSalaryUsd": 5100,
+      "maxSalaryUsd": 10800,
+      "minSalaryPhp": 295800,
+      "maxSalaryPhp": 626400,
+      "minDailyPhp": 14952,
+      "maxDailyPhp": 29952,
+      "minHourlyPhp": 7.18,
+      "maxHourlyPhp": 14.40
+    },
+    {
+      "title": "Human-AI Interaction Designer",
+      "minSalaryUsd": 5500,
+      "maxSalaryUsd": 12500,
+      "minSalaryPhp": 319000,
+      "maxSalaryPhp": 725000,
+      "minDailyPhp": 16115,
+      "maxDailyPhp": 34662,
+      "minHourlyPhp": 7.75,
+      "maxHourlyPhp": 16.66
+    },
+    {
+      "title": "Behavioral AI Designer",
+      "minSalaryUsd": 5100,
+      "maxSalaryUsd": 10400,
+      "minSalaryPhp": 295800,
+      "maxSalaryPhp": 602400,
+      "minDailyPhp": 14952,
+      "maxDailyPhp": 28862,
+      "minHourlyPhp": 7.18,
+      "maxHourlyPhp": 13.88
+    },
+    {
+      "title": "AI Systems Architect",
+      "minSalaryUsd": 7500,
+      "maxSalaryUsd": 15000,
+      "minSalaryPhp": 435000,
+      "maxSalaryPhp": 870000,
+      "minDailyPhp": 20769,
+      "maxDailyPhp": 41538,
+      "minHourlyPhp": 9.98,
+      "maxHourlyPhp": 19.97
+    },
+    {
+      "title": "Prompt Engineer & Conversational AI Designer",
+      "minSalaryUsd": 6300,
+      "maxSalaryUsd": 13300,
+      "minSalaryPhp": 365400,
+      "maxSalaryPhp": 771400,
+      "minDailyPhp": 17404,
+      "maxDailyPhp": 36827,
+      "minHourlyPhp": 8.36,
+      "maxHourlyPhp": 17.70
+    }
+  ]
+}
