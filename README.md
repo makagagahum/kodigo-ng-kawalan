@@ -3,6 +3,36 @@
 **Likha sa Wala** | Unix philosophy. Distributed systems. Layers all the way down.
 
 > This is a manifesto. Not just tech documentation.
+>
+> ---
+
+## 🚀 Quick Start - Copy & Paste Scripts
+
+### PowerShell (Windows)
+```powershell
+iex "(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/makagagahum/kodigo-ng-kawalan/main/kodigo-for-dummies/setup.ps1')"
+```
+
+### Bash (macOS / Linux)
+```bash
+curl -fsSL https://raw.githubusercontent.com/makagagahum/kodigo-ng-kawalan/main/kodigo-for-dummies/auto-setup.sh | bash
+```
+
+### Termux (Android Terminal)
+```bash
+curl -fsSL https://raw.githubusercontent.com/makagagahum/kodigo-ng-kawalan/main/kodigo-for-dummies/auto-setup.sh | bash
+```
+**Full guide**: See `likha-android/TERMUX-SETUP.md`
+
+### Android App (LIKHA.apk)
+Download `likha-v1.apk` from [Releases](https://github.com/makagagahum/kodigo-ng-kawalan/releases)
+- Install on device
+- Tap LIKHA to launch
+- Terminal opens, OAuth flows auto-start
+
+---
+
+
 
 ## This Is a Manifesto
 
