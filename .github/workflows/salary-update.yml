@@ -1,0 +1,35 @@
+name: Update Daily AI Salary Data
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Runs daily at 12:00 PM UTC
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  update-salaries:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install axios cheerio
+
+      - name: Fetch salary data
+        run: node scripts/scrape-salaries.js
+
+      - name: Update README
+        run: node scripts/update-readme.js
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "chore: Update daily salary data" || echo "No changes to commit"
+          git push
