@@ -22,17 +22,17 @@ I'm Marvin. This is what I believe. This is what works. This is what I'm buildin
 
 This isn't just a tech stack. It's a philosophical approach to infrastructure that works with entropy instead of against it. Eight distinct roles, each following Unix principles, unified into something functional.
 
-|| Role | Focus | Folder | Monthly Salary | Daily Rate |
-| --- | --- | --- | --- | --- |
-| **Automation Engineer** | n8n workflows, task automation, API integrations | [/n8n](/n8n) | $4500-$9000 | ₱216-₱432/day |
-| **Cybersecurity Specialist** | DDoS protection, SSL/TLS, hardening, security | [/security-hardening](/security-hardening) | $5600-$12500 | ₱269-₱600/day |
-| **Full-Stack Developer** | Bug fixes, performance, maintenance, deployment | [/bug-fixes](/bug-fixes) | $5200-$10800 | ₱250-₱519/day |
-| **DevOps Engineer** | Docker, Render deployment, infrastructure | Infrastructure as Code | $6000-$13000 | ₱288-₱625/day |
-| **Database Administrator** | PostgreSQL optimization, Supabase, pooling | [Database Layer](/docs) | $5200-$10200 | ₱250-₱490/day |
-| **Email Administrator** | Mailu setup, mail infrastructure, DNS | [Email Layer](/docs) | $4800-$8600 | ₱231-₱413/day |
-| **AI/ML Engineer** | ORIN AI agents, production setup, models | [/orin-revamp](/orin-revamp) | $7200-$13800 | ₱346-₱663/day |
-| **AI Personality Architect** | Behavioral AI design, psychological frameworks | [/ai-personality-architect](/ai-personality-architect) | $4200-$8300 | ₱202-₱399/day |
-| *Average Filipino Salary* | *Baseline for comparison* | --- | *₱12000-₱15000/month* | *₱576-₱722/day* |
+| Role | Daily USD | Daily PHP | Folder |
+| --- | --- | --- | --- |
+| **Automation Engineer** | $21-$43 | ₱1,232-₱2,464 | [/n8n](/n8n) |
+| **Cybersecurity Specialist** | $27-$60 | ₱1,560-₱3,480 | [/security-hardening](/security-hardening) |
+| **Full-Stack Developer** | $25-$52 | ₱1,450-₱3,016 | [/bug-fixes](/bug-fixes) |
+| **DevOps Engineer** | $29-$63 | ₱1,680-₱3,640 | Infrastructure as Code |
+| **Database Administrator** | $25-$49 | ₱1,450-₱2,842 | [Database Layer](/docs) |
+| **Email Administrator** | $23-$41 | ₱1,334-₱2,378 | [Email Layer](/docs) |
+| **AI/ML Engineer** | $35-$67 | ₱2,030-₱3,886 | [/orin-revamp](/orin-revamp) |
+| **AI Personality Architect** | $20-$40 | ₱1,160-₱2,320 | [/ai-personality-architect](/ai-personality-architect) |
+| **Average Filipino** | $3-$4 | ₱173-₱230 | Baseline |
 
 
 
