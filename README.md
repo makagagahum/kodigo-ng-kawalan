@@ -2,7 +2,7 @@
 
 **Likha sa Wala** | Unix philosophy. Distributed systems. Layers all the way down.
 
----
+> This is a manifesto. Not just tech documentation.
 
 ## This Is a Manifesto
 
@@ -18,7 +18,24 @@ I'm Marvin. This is what I believe. This is what works. This is what I'm buildin
 
 ---
 
-## The Foundation: Rooted in Obsession
+## One Person. Eight Roles. Infinite Possibilities.
+
+This isn't just a tech stack. It's a philosophical approach to infrastructure that works with entropy instead of against it. Eight distinct roles, each following Unix principles, unified into something functional.
+
+| Role | Focus | Folder | Status |
+|------|-------|--------|--------|
+| **Automation Engineer** | n8n workflows, task automation, API integrations | [/n8n](/n8n) | Active |
+| **Cybersecurity Specialist** | DDoS protection, SSL/TLS, hardening, security | [/security-hardening](/security-hardening) | Active |
+| **Full-Stack Developer** | Bug fixes, performance, maintenance, deployment | [/bug-fixes](/bug-fixes) | Active |
+| **DevOps Engineer** | Docker, Render deployment, infrastructure | Infrastructure as Code | Active |
+| **Database Administrator** | PostgreSQL optimization, Supabase, pooling | [Database Layer](/docs) | Active |
+| **Email Administrator** | Mailu setup, mail infrastructure, DNS | [Email Layer](/docs) | Active |
+| **AI/ML Engineer** | ORIN AI agents, production setup, models | [/orin-revamp](/orin-revamp) | Active |
+| **AI Personality Architect** | Behavioral AI design, psychological frameworks, prompt mastery | [/ai-personality-architect](/ai-personality-architect) | 🆕 Active |
+
+Each role has its own folder, its own documentation, its own identity. Each one follows the principle: **do one thing well**.
+
+---## The Foundation: Rooted in Obsession
 
 Understanding infrastructure requires understanding obsession. Real obsession. The kind that makes you brick your phone repeatedly not because you're reckless, but because you're trying to understand. To control. To own the device in your hand.
 
@@ -34,77 +51,13 @@ Why? Because every layer you understand is another level of independence. Anothe
 
 ## What This Taught Me: Everything Is Layers
 
-This obsession led to a realization that became everything: *everything is layers*. Your hardware. Your kernel. Your filesystem. Your application. Your database. Your network. Your society. Your economy. Your consciousness.
+This obsession led to a realization that became everything: **everything is layers**. Your hardware. Your kernel. Your filesystem. Your application. Your database. Your network. Your society. Your economy. Your consciousness.
 
 Each layer has rules. Each layer has boundaries. And if you understand the layers, if you understand how they connect and where they overlap, you can work with them instead of fighting them. You can predict failure. You can prevent catastrophe. You can build systems that don't just survive entropy, they work with it.
 
 When I moved to machine learning, data science, pen testing, it was the same principle: understanding the layers. Finding where they connect. Discovering what happens when you probe those connections. When you understand a system at every level, you own it.
 
 This insight is the foundation of everything here.
-
----
-
-## Why This Exists: The Manifesto
-
-I could have charged $99/month for what this does. Built a SaaS. Extracted value. Sold access. I didn't.
-
-Because I remember being that person. Broke. Wanting to build something real. Hitting paywalls. Watching AWS bills climb. Knowing that infrastructure shouldn't be the barrier that stops good ideas from existing.
-
-I remember forums full of people asking: "Can I do this for free?" The answer is yes. And it's not a compromise. It's better. It's more resilient. It respects the Unix philosophy: do one thing well. Compose systems from smaller systems. Understand every layer.
-
-There's something deeper here too. We're living in layers. Society. Economy. Simulation. Dimensions. What you do in one layer affects all the others. Building infrastructure that's free, transparent, and yours to modify isn't charity. It's recognizing that access to tools shouldn't depend on your bank account.
-
-There are times when reality doesn’t seem so flat. Maybe you end up seeing through to the extra layers after chasing some questions farther than most would bother. Some perspectives aren’t learned in classrooms or by tradition; they come from looking under every rock yourself. The Unix philosophy proves itself in practice. It isn’t designed for investor pitches or squeezing money out of users. It was made to solve real problems, and in action it brings something almost luminous, something honest.
-
-If you ever get the sense that you’re operating on a different plane, maybe seven or eight at a time, that changes your goals. It’s not about maximizing short-term extraction and vanishing. It’s about leaving what you build more open, more useful, less encumbered, for whoever comes after you. The next builder shouldn’t have to fight through the same barriers.
-
-So I'm building it. I'm sharing it. I'm asking you to make it yours, improve it, and pass it forward.
-
----
-
-## One Person. Seven Roles. Infinite Possibilities.
-
-This isn't just a tech stack. *It's a philosophical approach* to infrastructure that works with entropy instead of against it. Seven distinct roles, each following Unix principles, unified into something functional.
-
-| Role | Focus | Folder | Status |
-|---|---|---|---|
-| **Automation Engineer** | n8n workflows, task automation, API integrations | [/n8n](/n8n) | Active |
-| **Cybersecurity Specialist** | DDoS protection, SSL/TLS, hardening, security | [/security-hardening](/security-hardening) | Active |
-| **Full-Stack Developer** | Bug fixes, performance, maintenance, deployment | [/bug-fixes](/bug-fixes) | Active |
-| **DevOps Engineer** | Docker, Render deployment, infrastructure | Infrastructure as Code | Active |
-| **Database Administrator** | PostgreSQL optimization, Supabase, pooling | Database Layer | Active |
-| **Email Administrator** | Mailu setup, mail infrastructure, DNS | Email Layer | Active |
-| **AI/ML Engineer** | ORIN AI agents, production setup, models | Production AI | Active |
-
-Each role has its own folder, its own documentation, its own identity. Each one follows the principle: do one thing well.
-
----
-
-## Navigation Guide
-
-### Quick Start (5 minutes)
-
-1. **Understand the architecture** - Read System Architecture below
-2. **Explore automation workflows** - Check `/n8n/README.md`
-3. **Review security setup** - Check `/security-hardening/README.md`
-4. **See maintenance practices** - Check `/bug-fixes/README.md`
-
-### For Different Audiences
-
-**Just want to deploy?**
-- Start with System Architecture below
-- Jump to `/n8n/README.md` for deployment workflows
-
-**Interested in security?**
-- Head to `/security-hardening/README.md`
-- Covers DDoS protection, hardening, SSL/TLS setup
-
-**Need to fix something?**
-- Check `/bug-fixes/README.md`
-- Lists common issues, fixes, maintenance procedures
-
-**Want the full argument?**
-- Continue reading below
 
 ---
 
@@ -134,38 +87,35 @@ Three layers, each optimizing for different concerns:
 - Connection pooling & automated backups (redundancy that works)
 - Point-in-time recovery (mistakes are recoverable)
 
-```
-┌──────────────────────────┐
-│ USER REQUESTS            │
-│ (Via Your Custom Domain) │
-└────────────┬─────────────┘
-             │
-             ▼
-┌──────────────────────────────────────┐
-│ TIER 1: CLOUDFLARE EDGE NETWORK     │
-│ • Global DDoS Protection            │
-│ • SSL/TLS Encryption                │
-│ • Rate Limiting & Caching           │
-└────────────┬─────────────────────────┘
-             │
-             ▼
-┌──────────────────────────────────────┐
-│ TIER 2: RENDER (Application Layer)  │
-│ • n8n Automation Engine             │
-│ • Auto-Scaling & Load Balancing     │
-│ • Health Checks & Auto-Restart      │
-│ • PostgreSQL Connection Pooling     │
-└────────────┬─────────────────────────┘
-             │
-             ▼
-┌──────────────────────────────────────┐
-│ TIER 3: SUPABASE (Data Persistence) │
-│ • PostgreSQL with Real-time APIs    │
-│ • Row-Level Security                │
-│ • Automated Backups & Recovery      │
-│ • Connection Pooling                │
-└──────────────────────────────────────┘
-```
+---
+
+## Navigation Guide
+
+### Quick Start (5 minutes)
+
+1. **Understand the architecture** - Read System Architecture above
+2. **Explore automation workflows** - Check `/n8n/README.md`
+3. **Review security setup** - Check `/security-hardening/README.md`
+4. **See maintenance practices** - Check `/bug-fixes/README.md`
+5. **Learn AI Personality Design** - Check `/ai-personality-architect/README.md`
+
+### For Different Audiences
+
+**Just want to deploy?**
+- Start with System Architecture above
+- Jump to `/n8n/README.md` for deployment workflows
+
+**Interested in security?**
+- Head to `/security-hardening/README.md`
+- Covers DDoS protection, hardening, SSL/TLS setup
+
+**Need to fix something?**
+- Check `/bug-fixes/README.md`
+- Lists common issues, fixes, maintenance procedures
+
+**Want to build AI agents?**
+- Go to `/ai-personality-architect/README.md`
+- Learn how to encode human personality into AI
 
 ---
 
@@ -176,8 +126,6 @@ Three layers, each optimizing for different concerns:
 3. **Output flows to input** - Documentation triggers automation. Automation triggers monitoring. Everything connects.
 4. **Transparency and openness** - No black boxes. No mysterious vendor lock-in beyond what's necessary.
 5. **Understand the layers** - Know how systems connect. Predict failure. Prevent catastrophe.
-
-I built this because I remember being broke, wanting to deploy something real without getting crushed by cloud bills. I remember forums full of people asking: "Can I do this for free?" The answer is yes. And it's not a compromise. It's cleaner.
 
 ### Infrastructure Principles
 
@@ -201,6 +149,8 @@ For comprehensive documentation:
 - **n8n Automation** - See `/n8n/README.md` for workflows, use cases, setup
 - **Security Hardening** - See `/security-hardening/README.md` for DDoS, SSL/TLS, hardening
 - **Bug Fixes & Maintenance** - See `/bug-fixes/README.md` for issues, fixes, maintenance
+- **AI Personality Architecture** - See `/ai-personality-architect/README.md` for building sentient agents
+- **Documentation Structure** - See `/docs/README.md` for how docs are organized
 
 Each explains:
 
@@ -218,6 +168,7 @@ Each explains:
 **CDN/WAF:** Cloudflare (Workers for serverless, routing for speed)
 **Automation:** n8n (Open source, self-hosted, not a subscription trap)
 **Email:** Mailu (Open source email, yours to modify)
+**Frontend:** React 19 + TypeScript + Vite (Modern, performant, free)
 
 Each choice based on:
 
@@ -235,62 +186,18 @@ Got questions? Found something broken? Want to build on top of this?
 
 Hit me up directly:
 
-- **Email:** [marvin@orin.work](mailto:marvin@orin.work)
+- **Email:** marvin@orin.work
 - **GitHub:** Open an issue, contribute, make it yours
-- **Orin AI:** That's the n8n automation running this whole thing. If you want to talk to what we built, visit [https://orin.work/](https://orin.work/) or [https://www.facebook.com/orinworks](https://www.facebook.com/orinworks)
-
-Talk to me. That's it.
+- **Orin AI:** Visit https://orin.work/ or https://www.facebook.com/orinworks
 
 ---
----
 
-Let's Go
---------
+## Let's Go
 
 It's free. It works. Use it.
 
-[![Insights Processed](https://camo.githubusercontent.com/df7694a097f0a0d0855e7a1583264768b06231302d15938db54cdb13d701f3bf/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d6d616b616761676168756d26636f6c6f723d384132424532267374796c653d666c61742d737175617265266c6162656c3d4c41594552532b4558414d494e4544)](https://github.com/makagagahum)
-</div>
+Transform it. Share it. Pass it forward.
 
----
+This is kodigo ng kawalan. Code born from nothing. Built on principles. Shared with no strings.
 
-## Frontend: ORIN Revamp Integration
-
-This repository now includes **orin-revamp**, a modern React 19 + TypeScript + Vite web application integrated into the kodigo-ng-kawalan infrastructure.
-
-### Quick Start
-
-```bash
-cd orin-revamp
-npm install
-npm run dev
-```
-
-The dev server runs on `http://localhost:5000`
-
-### Structure
-- **React 19** with TypeScript
-- **Vite 6** for fast development and optimized builds  
-- **Google Gemini API** for AI integration
-- **Recharts** for data visualization
-- **Lucide React** for icons
-
-### Build & Deploy
-
-```bash
-cd orin-revamp
-npm run build
-# Output: dist/ folder ready for deployment
-```
-
-Deployed to Render.com or Cloudflare Pages via `dist/` output.
-
-### Documentation
-
-See `/orin-revamp/ORIN_REVAMP_INTEGRATION_GUIDE.md` for comprehensive setup and deployment instructions.
-- **Render Deployment**: See [DEPLOY_ORIN_REVAMP.md](DEPLOY_ORIN_REVAMP.md) for one-command deployment to Render free tier ($0/month)
-- **Quick Deploy Script**: Run `bash QUICK_DEPLOY.sh` to build and test locally before deployment
-
----
-
-</div>
+**One person. Eight roles. Infinite layers.**
