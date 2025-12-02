@@ -32,7 +32,7 @@ This isn't just a tech stack. It's a philosophical approach to infrastructure th
 | **Email Administrator** | $23-$41 | ₱1,334-₱2,378 | [Email Layer](/docs) |
 | **AI/ML Engineer** | $35-$67 | ₱2,030-₱3,886 | [/orin-revamp](/orin-revamp) |
 | **AI Personality Architect** | $20-$40 | ₱1,160-₱2,320 | [/ai-personality-architect](/ai-personality-architect) |
-| **ANCR Minimum-Wage Worker (non‑agri) | $11–$12 | ₱645–₱695 | Legal floor, Metro Manila baseline |
+| **NCR Minimum-Wage Worker (non‑agri) | $11–$12 | ₱645–₱695 | Legal floor, Metro Manila baseline |
 | Provincial Minimum-Wage Worker | ~$8–$10 | ~₱400–₱500 | Typical provincial baseline (varies by region) |
 
 
