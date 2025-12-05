@@ -1,0 +1,50 @@
+name: n8n Auto-Update (Weekly)
+
+on:
+  schedule:
+    # Runs every Saturday at 3:00 AM UTC+8 (Friday 7:00 PM UTC)
+    - cron: '0 19 * * 5'
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  update-n8n-space:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install huggingface_hub
+        run: |
+          pip install huggingface_hub
+      
+      - name: Factory Rebuild n8n Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python - <<EOF
+          from huggingface_hub import HfApi
+          import os
+          
+          api = HfApi(token=os.environ['HF_TOKEN'])
+          
+          # Factory rebuild triggers a full rebuild (pulls latest n8n version)
+          print("🔄 Starting factory rebuild of n8n Space...")
+          api.restart_space(
+              repo_id="orinai/n8n",
+              factory_reboot=True  # This pulls latest Docker image
+          )
+          print("✅ n8n Space factory rebuild triggered successfully!")
+          print("⚠️  Note: This will reset any data stored in the Space container.")
+          print("💾 Your workflows are safe in Supabase PostgreSQL.")
+          EOF
+      
+      - name: Notify completion
+        run: |
+          echo "🎉 n8n auto-update workflow completed!"
+          echo "⏰ Next update: Next Saturday at 3:00 AM (UTC+8)"
