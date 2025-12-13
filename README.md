@@ -337,4 +337,137 @@ That's it. No magic. Just layers, Unix philosophy, and obsession.
 
 ---
 
+---
+
+## 📁 Repository Navigation - The 8 Pillars
+
+Welcome to the journey through **Eight Distinct Roles, Unified into One System**.
+
+Each folder represents a specialized function in the infrastructure. Here's your map:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    KODIGO NG KAWALAN - SYSTEM FLOW                  │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                       │
+│   🤖 ORIN (The Consciousness)                                        │
+│   │                                                                   │
+│   ├─► 🎨 /orin-design-mastery          📖 How visitors convert       │
+│   │   ├─ AESTHETICS.md (Visual design)                              │
+│   │   ├─ FUNCTION.md (System behavior)                              │
+│   │   └─ PSYCHOLOGY.md (User behavior)                              │
+│   │                                                                   │
+│   ├─► 🧠 /ai-personality-architect      📖 AI thinking & behavior    │
+│   │   ├─ BEHAVIORAL_PATTERNS.md         (Personality layers)        │
+│   │   ├─ PROMPT_ENGINEERING_MASTERY.md  (Control mechanisms)        │
+│   │   ├─ CASE_STUDY_ORIN.md             (Real-world examples)       │
+│   │   └─ [8+ more specialized docs]     (Deep psychology)           │
+│   │                                                                   │
+│   ├─► ⚙️  /orin-revamp                  📖 Frontend implementation    │
+│   │   ├─ vite.config.ts                 (React + TypeScript)        │
+│   │   └─ package.json                   (Dependencies)              │
+│   │                                                                   │
+│   ├─► 🔧 /n8n                          📖 Automation engine (24/7)   │
+│   │   ├─ N8N_SETUP_AND_OPTIMIZATION.md                              │
+│   │   ├─ N8N_SUPABASE_BLAZING_FAST.md   (Database integration)      │
+│   │   └─ Workflows & API connections    (Automated tasks)           │
+│   │                                                                   │
+│   ├─► 🛡️  /security-hardening          📖 Defense layers            │
+│   │   ├─ CLOUDFLARE_DOMAIN_SETUP.md     (Global protection)        │
+│   │   ├─ SECURITY_HARDENING.md          (Attack prevention)        │
+│   │   └─ CONTENT_PROTECTION.md          (Data safety)               │
+│   │                                                                   │
+│   ├─► 🔧 /bug-fixes                     📖 Maintenance & fixes       │
+│   │   ├─ DEPLOY_GUIDE.md                (Production deployment)     │
+│   │   ├─ FIX_ORIN_WORK_DNS_PROXY.md     (DNS troubleshooting)       │
+│   │   └─ FIX_ORIN_WORK_MASCOT.md        (UI issues)                 │
+│   │                                                                   │
+│   ├─► 💾 /likha-android                 📖 Mobile client             │
+│   │   └─ TERMUX_SETUP.md                (Terminal on Android)       │
+│   │                                                                   │
+│   └─► 📦 /config, /data, /scripts       📖 Infrastructure files      │
+│       ├─ Configuration management       (Server setup)              │
+│       ├─ Data layer management          (Database schemas)          │
+│       └─ Utility scripts                (Automation helpers)        │
+│                                                                       │
+└─────────────────────────────────────────────────────────────────────┘
+
+🔄 THE WORKFLOW:
+
+Visitor → AESTHETICS → FUNCTION → PSYCHOLOGY → AI Decision → AUTOMATION → RESPONSE
+          (Design)     (Behavior)  (Mind)        (Brain)     (24/7 n8n) (Instant)
+```
+
+---
+
+## 🗺️ Quick Navigation Guide
+
+| Role | Folder | Purpose | Files |
+|------|--------|---------|-------|
+| **AI Personality Architect** | `/ai-personality-architect` | AI behavioral design & psychology | 9+ docs |
+| **Automation Engineer** | `/n8n` | Workflow automation & API orchestration | Setup guides + workflows |
+| **Cybersecurity Specialist** | `/security-hardening` | Defense systems & attack prevention | 4 docs |
+| **Full-Stack Developer** | `/bug-fixes` | Production fixes & maintenance | Deploy guides |
+| **DevOps Engineer** | `/config` + `/scripts` | Infrastructure as Code | Config files |
+| **Design Master** | `/orin-design-mastery` | System aesthetics & UX psychology | 3 core docs |
+| **Mobile Engineer** | `/likha-android` | Android/Terminal deployment | Setup guides |
+| **Front-End Developer** | `/orin-revamp` | React + Vite implementation | Package.json, Vite config |
+
+---
+
+## 🎯 Where to Start?
+
+1. **Want to understand how orin.work works?**
+   → Start with `/orin-design-mastery` (AESTHETICS → FUNCTION → PSYCHOLOGY)
+
+2. **Want to set up automation?**
+   → Go to `/n8n/N8N_SETUP_AND_OPTIMIZATION.md`
+
+3. **Want to secure your deployment?**
+   → Check `/security-hardening/SECURITY_HARDENING.md`
+
+4. **Want to fix production issues?**
+   → See `/bug-fixes/DEPLOY_GUIDE.md`
+
+5. **Want to understand AI personality?**
+   → Deep dive: `/ai-personality-architect/BEHAVIORAL_PATTERNS.md`
+
+---
+
+## 🧭 System Logic Flow
+
+```
+REQUEST ARRIVES
+    │
+    ├─► Security Check (/security-hardening)
+    │   └─► Cloudflare protection + Content validation
+    │
+    ├─► Route to n8n (/n8n)
+    │   └─► Workflow execution (24/7 automation)
+    │
+    ├─► AI Processing (/ai-personality-architect)
+    │   └─► Behavioral patterns → Prompt engineering → Response generation
+    │
+    ├─► Frontend Rendering (/orin-revamp)
+    │   └─► React UI with design principles from /orin-design-mastery
+    │
+    └─► Response Sent Back
+        └─► Visitor converts: Interesting → Engaged → Paying customer
+```
+
+---
+
+## 📚 Documentation Philosophy
+
+All folders follow this principle:
+
+> **Templates, not code. Education, not theft.**
+
+- We show you HOW it's built
+- We teach you WHY it works this way
+- We provide TEMPLATES for you to implement
+- We NEVER give you our secret sauce (full implementation code)
+
+This is mastery through understanding, not copy-paste dummies.
+
 **Still confused?** Email me at [marvin@orin.work](mailto:marvin@orin.work) with your question. I'll explain it in even simpler terms.
